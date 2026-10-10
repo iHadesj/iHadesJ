@@ -4,27 +4,27 @@
 
 <div align="center">
   <br />
-  <a href="https://github.com/iHadesj/EduardoFerreira"><img src="https://img.shields.io/badge/PORTFÓLIO-0B1220?style=for-the-badge&logo=vercel&logoColor=white" alt="Código do portfólio" /></a>
+  <a href="https://edu-ferreira.vercel.app"><img src="https://img.shields.io/badge/PORTFÓLIO-0B1220?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfólio" /></a>
   <a href="https://www.linkedin.com/in/eduardo-alexandre-java/"><img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-  <a href="https://github.com/iHadesj?tab=repositories"><img src="https://img.shields.io/badge/PROJETOS-181717?style=for-the-badge&logo=github&logoColor=white" alt="Projetos no GitHub" /></a>
+  <a href="https://github.com/iHadesj?tab=repositories"><img src="https://img.shields.io/badge/REPOSITÓRIOS-181717?style=for-the-badge&logo=github&logoColor=white" alt="Repositórios" /></a>
 </div>
 
-## Produto primeiro. Código com propósito.
+## E aí, sou o Edu
 
-Sou desenvolvedor **Full Stack** com foco em criar aplicações web que vão além da interface bonita: regras de negócio claras, estado previsível, performance, acessibilidade e uma experiência que faça sentido para quem usa.
+Dev full stack, 20 anos, do Grajaú, zona sul de SP. Passei 20 meses na VTT trabalhando com digital signage e retail media pro varejo, e hoje tô procurando a próxima vaga como full stack ou front-end.
 
-Hoje trabalho principalmente com **React, Next.js e TypeScript**, mantendo em **Java, JPA e PostgreSQL** minha base de backend e dados. Gosto especialmente de transformar ideias grandes em fluxos simples, testáveis e prontos para evoluir.
+Gosto de fazer app que funciona direito: regra de negócio no lugar certo, estado que não vira bagunça, rápido e fácil de usar. Meu dia a dia é React, Next.js e TypeScript. No back, minha base é Java, JPA e PostgreSQL.
 
-- Construo interfaces responsivas, acessíveis e orientadas a conversão.
-- Modelo regras de negócio, estado global, persistência local e fluxos assíncronos.
-- Trabalho com PWA, estratégias offline-first, testes automatizados e otimização de performance.
-- Uso animação e 3D quando eles melhoram a narrativa — não apenas para decorar a tela.
+- Interface responsiva e acessível
+- Regra de negócio, estado global, persistência local e fluxo assíncrono
+- PWA com offline-first, teste automatizado e otimização de performance
+- Animação e 3D só quando ajudam, não pra encher a tela
 
-## Stack que uso para construir
+## Stack
 
 <div align="center">
 
-**Frontend & experiência**
+**Frontend**
 
 <img src="https://img.shields.io/badge/React-0D1117?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
 <img src="https://img.shields.io/badge/Next.js-0D1117?style=for-the-badge&logo=nextdotjs&logoColor=FFFFFF" alt="Next.js" />
@@ -34,7 +34,7 @@ Hoje trabalho principalmente com **React, Next.js e TypeScript**, mantendo em **
 <img src="https://img.shields.io/badge/Motion-0D1117?style=for-the-badge&logo=framer&logoColor=F8FAFC" alt="Motion" />
 <img src="https://img.shields.io/badge/Three.js-0D1117?style=for-the-badge&logo=threedotjs&logoColor=FFFFFF" alt="Three.js" />
 
-**Backend, dados & qualidade**
+**Backend, dados e testes**
 
 <img src="https://img.shields.io/badge/Java-0D1117?style=for-the-badge&logo=openjdk&logoColor=F59E0B" alt="Java" />
 <img src="https://img.shields.io/badge/PostgreSQL-0D1117?style=for-the-badge&logo=postgresql&logoColor=4169E1" alt="PostgreSQL" />
@@ -46,62 +46,66 @@ Hoje trabalho principalmente com **React, Next.js e TypeScript**, mantendo em **
 
 </div>
 
-## Projetos que mostram como eu penso
+<details>
+  <summary><strong>O resto do que eu já usei</strong></summary>
+  <br />
+
+  `TanStack Query` · `React Router` · `Zustand` · `Dexie` · `JPA` · `Tomcat` · `Resend` · `Velite` · `React Email` · `Radix UI` · `Fuse.js` · `Workbox` · `ESLint` · `Prettier`
+</details>
+
+## Projetos
 
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h3>🛍️ Levva</h3>
-      <p><strong>E-commerce gamificado e laboratório de produto.</strong></p>
-      <p>Uma PWA com catálogo em escala, busca tolerante a erros, carrinho, checkout simulado, pedidos, coleção, economia virtual e jogos com regras auditáveis.</p>
+      <h3>Levva</h3>
+      <p><strong>E-commerce gamificado, meu laboratório de produto.</strong></p>
+      <p>PWA com catálogo grande, busca que aguenta erro de digitação, carrinho, checkout simulado, pedidos, coleção, economia virtual e jogos com regras auditáveis.</p>
       <p><code>React</code> <code>TypeScript</code> <code>Zustand</code> <code>Dexie</code> <code>Vitest</code> <code>PWA</code></p>
-      <a href="https://github.com/iHadesj/Levva-loja-e-sorte"><strong>Explorar projeto →</strong></a>
+      <a href="https://github.com/iHadesj/Levva-loja-e-sorte"><strong>Ver projeto →</strong></a>
     </td>
     <td width="50%" valign="top">
-      <h3>🧑‍💻 Portfólio</h3>
-      <p><strong>Minha experiência profissional traduzida em produto digital.</strong></p>
-      <p>Portfólio construído com conteúdo tipado, animações, experiências 3D, validação, testes unitários e testes end-to-end.</p>
+      <h3>Portfólio</h3>
+      <p><strong>Minha experiência transformada em site.</strong></p>
+      <p>Conteúdo tipado, animações, 3D, validação, teste unitário e teste end-to-end.</p>
       <p><code>Next.js</code> <code>React</code> <code>TypeScript</code> <code>Tailwind</code> <code>Three.js</code></p>
-      <a href="https://github.com/iHadesj/EduardoFerreira"><strong>Código →</strong></a>
+      <a href="https://github.com/iHadesj/EduardoFerreira"><strong>Ver código →</strong></a>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h3>📊 DetranDiff</h3>
-      <p><strong>Comparação mensal de tabelas de tarifas.</strong></p>
-      <p>Projeto pessoal focado em transformar mudanças entre dados tabulares em informação mais fácil de revisar.</p>
+      <h3>DetranDiff</h3>
+      <p><strong>Comparador mensal de tabelas de tarifa.</strong></p>
+      <p>Projeto pessoal pra ver o que mudou entre uma tabela e outra sem precisar conferir linha por linha.</p>
       <p><code>HTML</code> <code>CSS</code> <code>JavaScript</code></p>
-      <a href="https://github.com/iHadesj/DetranDiff"><strong>Explorar projeto →</strong></a>
+      <a href="https://github.com/iHadesj/DetranDiff"><strong>Ver projeto →</strong></a>
     </td>
     <td width="50%" valign="top">
-      <h3>🌿 Raiz Pilates</h3>
-      <p><strong>Landing page para um negócio de bem-estar.</strong></p>
-      <p>Uma experiência de marca focada em apresentação de serviços, confiança e conversão para uma empresa de pilates.</p>
+      <h3>Raiz Pilates</h3>
+      <p><strong>Demo de landing page pra um studio de pilates.</strong></p>
+      <p>Focada em apresentar os serviços, passar confiança e levar o visitante pro contato.</p>
       <p><code>HTML</code> <code>CSS</code> <code>Responsive UI</code></p>
-      <a href="https://github.com/iHadesj/RaizPilates"><strong>Explorar projeto →</strong></a>
+      <a href="https://github.com/iHadesj/RaizPilates"><strong>Ver projeto →</strong></a>
     </td>
   </tr>
 </table>
 
-## O que você encontra nos meus repositórios
+No lado Java, tem o [Projeto_CRUD](https://github.com/iHadesj/Projeto_CRUD) e o [JPA_PostgreSQL](https://github.com/iHadesj/JPA_PostgreSQL), onde pratiquei a base do backend.
+
+## Como eu encaro meus projetos
 
 ```text
-ideia → regras de negócio → experiência → implementação → testes → evolução
+ideia → regra de negócio → experiência → código → teste → evolução
 ```
 
-Não trato projetos pessoais como telas descartáveis. Eles são onde exercito decisões parecidas com as de um produto real: estrutura de domínio, estados de erro e vazio, persistência, performance, clareza de documentação e os limites entre uma simulação convincente e um sistema de produção.
+Projeto pessoal pra mim não é só tela bonita. É onde eu treino o que faria num produto de verdade: estrutura de domínio, tela de erro e de vazio, persistência, performance e documentação. Quando é simulação, eu deixo claro onde ela termina e onde começaria um sistema de produção.
 
-<details>
-  <summary><strong>Outras tecnologias e práticas que fazem parte do meu repertório</strong></summary>
-  <br />
+## Experiência
 
-  `TanStack Query` · `React Router` · `Zustand` · `JPA` · `Resend` · `Velite` · `React Email` · `Radix UI` · `Fuse.js` · `Workbox` · `ESLint` · `Prettier` · design responsivo · acessibilidade · SEO · documentação técnica
-</details>
+**VTT (Vector Two Technologies)** · Desenvolvedor Web · fev. 2025 a out. 2026
 
-## Vamos conversar?
+Projetos de digital signage e retail media pra varejo. Entrei sabendo HTML, CSS, JavaScript, Java e MySQL e saí com React, Tomcat e mais noção de arquitetura de sistema.
 
-Se você procura alguém que una **execução técnica, cuidado visual e raciocínio de produto**, conheça meus [projetos](https://github.com/iHadesj?tab=repositories) ou fale comigo pelo [LinkedIn](https://www.linkedin.com/in/eduardo-alexandre-java/).
+## Contato
 
-<div align="center">
-  <sub>Feito com intenção, TypeScript e café suficiente para refatorar antes do deploy.</sub>
-</div>
+Curtiu algum projeto ou quer trocar ideia sobre vaga? Me chama no [LinkedIn](https://www.linkedin.com/in/eduardo-alexandre-java/) ou dá uma olhada no [portfólio](https://edu-ferreira.vercel.app).
