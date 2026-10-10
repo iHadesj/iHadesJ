@@ -13,9 +13,9 @@
 
 Dev full stack, 20 anos, do Grajaú, zona sul de SP. Passei 20 meses na VTT trabalhando com digital signage e retail media pro varejo, e hoje tô procurando a próxima vaga como full stack ou front-end.
 
-Gosto de fazer app que funciona direito: regra de negócio no lugar certo, estado que não vira bagunça, rápido e fácil de usar. Meu dia a dia é React, Next.js e TypeScript. No back, minha base é Java, JPA e PostgreSQL.
+Gosto de fazer o app funcionar primeiro e depois foco na estética: regra de negócio no lugar certo, sem lotar de estados, rápido e fácil de usar. Meu dia a dia é React, Next.js e TypeScript. No back, minha base é Java, JPA e PostgreSQL.
 
-- Interface responsiva e acessível
+- Interface responsiva e acessível 
 - Regra de negócio, estado global, persistência local e fluxo assíncrono
 - PWA com offline-first, teste automatizado e otimização de performance
 - Animação e 3D só quando ajudam, não pra encher a tela
