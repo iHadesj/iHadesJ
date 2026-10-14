@@ -55,37 +55,54 @@ Gosto de fazer o app funcionar primeiro e depois foco na estética: regra de neg
 
 ## Projetos
 
+
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h3>Levva</h3>
+      <h3>Levva — Loja & Sorte</h3>
       <p><strong>E-commerce gamificado, meu laboratório de produto.</strong></p>
-      <p>PWA com catálogo grande, busca que aguenta erro de digitação, carrinho, checkout simulado, pedidos, coleção, economia virtual e jogos com regras auditáveis.</p>
+      <p>PWA com catálogo de 400 produtos, busca fuzzy, carrinho/checkout com dinheiro em centavos, cassino/gacha com RTP auditável, 29 testes, offline-first.</p>
       <p><code>React</code> <code>TypeScript</code> <code>Zustand</code> <code>Dexie</code> <code>Vitest</code> <code>PWA</code></p>
       <a href="https://github.com/iHadesj/Levva-loja-e-sorte"><strong>Ver projeto →</strong></a>
     </td>
     <td width="50%" valign="top">
-      <h3>Portfólio</h3>
+      <h3>Portfólio Pessoal</h3>
       <p><strong>Minha experiência transformada em site.</strong></p>
-      <p>Conteúdo tipado, animações, 3D, validação, teste unitário e teste end-to-end.</p>
-      <p><code>Next.js</code> <code>React</code> <code>TypeScript</code> <code>Tailwind</code> <code>Three.js</code></p>
+      <p>Site spec-driven: 3D lazy-loaded (230 KB gz), animações com Motion, testes unitários + e2e, validação Zod, conteúdo tipado.</p>
+      <p><code>Next.js</code> <code>React</code> <code>TypeScript</code> <code>Tailwind v4</code> <code>Three.js</code></p>
       <a href="https://github.com/iHadesj/EduardoFerreira"><strong>Ver código →</strong></a>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h3>DetranDiff</h3>
-      <p><strong>Comparador mensal de tabelas de tarifa.</strong></p>
-      <p>Projeto pessoal pra ver o que mudou entre uma tabela e outra sem precisar conferir linha por linha.</p>
-      <p><code>HTML</code> <code>CSS</code> <code>JavaScript</code></p>
-      <a href="https://github.com/iHadesj/DetranDiff"><strong>Ver projeto →</strong></a>
+      <h3>change_in_the_house_of_flies</h3>
+      <p><strong>Música transformada em UI interativa.</strong></p>
+      <p>Espectro realtime via Web Audio API, letra sincronizada (.lrc), Media Session API, refrão dispara intensidade visual (halo, zoom, tremor).</p>
+      <p><code>JavaScript</code> <code>Web Audio API</code> <code>Vite</code></p>
+      <a href="https://github.com/iHadesj/change_in_the_house_of_flies"><strong>Ver projeto →</strong></a>
     </td>
     <td width="50%" valign="top">
-      <h3>Raiz Pilates</h3>
-      <p><strong>Demo de landing page pra um studio de pilates.</strong></p>
-      <p>Focada em apresentar os serviços, passar confiança e levar o visitante pro contato.</p>
-      <p><code>HTML</code> <code>CSS</code> <code>Responsive UI</code></p>
-      <a href="https://github.com/iHadesj/RaizPilates"><strong>Ver projeto →</strong></a>
+      <h3>DevTrack</h3>
+      <p><strong>Tracker de progresso de estudos e projetos.</strong></p>
+      <p>Foco em produtividade dev: organização de tarefas, métricas de tempo, visualização de evolução.</p>
+      <p><code>TypeScript</code></p>
+      <a href="https://github.com/iHadesj/DevTrack"><strong>Ver projeto →</strong></a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>API Java + PostgreSQL</h3>
+      <p><strong>CRUD limpo em arquitetura MVC.</strong></p>
+      <p>Controller → Service → Repository, consultas versionadas em SQL, testes com JUnit.</p>
+      <p><code>Java</code> <code>Spring</code> <code>JPA/Hibernate</code> <code>PostgreSQL</code> <code>JUnit</code></p>
+      <a href="https://github.com/iHadesj/JPA_PostgreSQL"><strong>Ver projeto →</strong></a>
+    </td>
+    <td width="50%" valign="top">
+      <h3>Projeto CRUD</h3>
+      <p><strong>Base de CRUD com JDBC/MySQL.</strong></p>
+      <p>Fundamentos de persistência: conexão, statements, transações, padrão DAO.</p>
+      <p><code>Java</code> <code>JDBC</code> <code>MySQL</code></p>
+      <a href="https://github.com/iHadesj/Projeto_CRUD"><strong>Ver projeto →</strong></a>
     </td>
   </tr>
 </table>
