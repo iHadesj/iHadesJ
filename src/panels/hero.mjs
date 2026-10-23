@@ -4,7 +4,7 @@
 
 import { portrait, trainingFrames } from '../art/portrait.mjs';
 import { fontFaces, svgDoc, textRows, rectsPath, polyPath, esc, n } from '../lib/svg.mjs';
-import { BASE_CSS, PAD, BAR, windowFrame, typed, prompt, cursor, anim, at } from '../lib/term.mjs';
+import { BASE_CSS, LH, PAD, BAR, windowFrame, typed, prompt, cursor, anim, at } from '../lib/term.mjs';
 import { rng } from '../lib/random.mjs';
 
 const CELL_W = 6; // art cell, in viewBox units (font-size 10 → 0.6em advance)
@@ -27,15 +27,15 @@ export function hero({ title, command, result, session, status, art: artOptions 
 
   const W = art.cols * CELL_W + 40;
   const ax = 20; // art origin
-  const ay = BAR + 46;
+  const ay = BAR + 52;
   const artH = art.rows * CELL_H;
-  const outY = ay + artH + 26; // first line after the art
-  const H = outY + 2 * 21 + 34;
-  const statusY = H - 26;
+  const outY = ay + artH + 30; // first line after the art
+  const H = outY + 2 * LH + 36;
+  const statusY = H - 30;
 
   // --- timeline ---------------------------------------------------------------
-  const p1 = prompt({ x: PAD, y: BAR + 28 });
-  const cmd = typed({ x: PAD + p1.width, y: BAR + 28, text: command, start: 0.6 });
+  const p1 = prompt({ x: PAD, y: BAR + 32 });
+  const cmd = typed({ x: PAD + p1.width, y: BAR + 32, text: command, start: 0.6 });
   const t0 = cmd.end + 0.35; // TRAINING STARTED
   const tOf = (epoch) => (epoch >= 6 ? t0 + 5.5 * EPOCH + 0.5 : t0 + epoch * EPOCH);
   const tDone = tOf(6);
@@ -92,17 +92,17 @@ export function hero({ title, command, result, session, status, art: artOptions 
   // --- after the run ------------------------------------------------------------------
   const out = `<text x="${PAD}" y="${outY}"${anim(`pop .4s ${at(tOut)} backwards`)}>` +
     `<tspan class="b">✓</tspan> ${esc(result[0])}<tspan class="dim">${esc(result[1])}</tspan></text>`;
-  const p2 = prompt({ x: PAD, y: outY + 21 });
+  const p2 = prompt({ x: PAD, y: outY + LH });
 
   // --- status bar (tmux-ish) -------------------------------------------------------------
   const barW = 120;
   const barX = W - PAD - barW - 210;
   const statusBar = [
     `<path d="M1 ${statusY - 2}H${W - 1}" stroke="#1d1d1d"/>`,
-    `<text x="${PAD}" y="${statusY + 14}" class="sb"><tspan class="faint">[${esc(session)}]</tspan> <tspan class="dim">0:train*</tspan> <tspan class="faint">1:zsh</tspan></text>`,
-    `<rect x="${barX}" y="${statusY + 5}" width="${barW}" height="10" fill="none" stroke="#3a3a3a"/>`,
-    `<rect x="${barX + 2}" y="${statusY + 7}" width="${barW - 4}" height="6" fill="#bdbdbd" style="transform-origin:${barX + 2}px 0;animation:grow ${at(tOf(5) - t0)} steps(5,end) ${at(t0)} backwards"/>`,
-    `<text x="${W - PAD}" y="${statusY + 14}" text-anchor="end" class="sb dim">${esc(status)}</text>`,
+    `<text x="${PAD}" y="${statusY + 19}" class="sb"><tspan class="faint">[${esc(session)}]</tspan> <tspan class="dim">0:train*</tspan> <tspan class="faint">1:zsh</tspan></text>`,
+    `<rect x="${barX}" y="${statusY + 8}" width="${barW}" height="10" fill="none" stroke="#3a3a3a"/>`,
+    `<rect x="${barX + 2}" y="${statusY + 10}" width="${barW - 4}" height="6" fill="#bdbdbd" style="transform-origin:${barX + 2}px 0;animation:grow ${at(tOf(5) - t0)} steps(5,end) ${at(t0)} backwards"/>`,
+    `<text x="${W - PAD}" y="${statusY + 19}" text-anchor="end" class="sb dim">${esc(status)}</text>`,
   ].join('');
 
   // --- CRT dressing: scanlines + a slow refresh band over the art --------------------------
@@ -113,7 +113,7 @@ export function hero({ title, command, result, session, status, art: artOptions 
   const style = fontFaces({ bold: true }) + BASE_CSS + `
 .art text{font-size:10px;font-weight:700;fill:#ededed}
 .log{font-size:${n(logSize)}px;fill:#c9c9c9}
-.sb{font-size:11.5px}
+.sb{font-size:13.5px}
 .fr{opacity:0}
 @keyframes glitch{0%,90%{transform:none}91%{transform:translateX(-12px)}93%{transform:translateX(7px)}95%{transform:translateX(-4px)}96%,100%{transform:none}}
 @keyframes twinkle{0%,100%{opacity:1}40%{opacity:.35}70%{opacity:.85}}
@@ -145,7 +145,7 @@ ${cmd.css}`;
     `</g>`,
     out,
     `<g${anim(`on .01s ${at(tPrompt)} backwards`)}>${p2.svg}</g>`,
-    cursor({ x: PAD + p2.width, y: outY + 21, start: tPrompt }),
+    cursor({ x: PAD + p2.width, y: outY + LH, start: tPrompt }),
     statusBar,
   ].join('\n');
 

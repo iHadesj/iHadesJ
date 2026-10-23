@@ -22,7 +22,13 @@ export function wrap(text, width) {
 
 const COLS = Math.floor((CARD_W - 2 * PAD_X) / CW);
 
-const CHIP = 11.5; // chip font size
+// github.com/user/repo, cut with … if it doesn't fit the card
+const shortLink = (url) => {
+  const text = url.replace(/^https:\/\//, '');
+  return text.length > COLS - 3 ? `${text.slice(0, COLS - 4)}…` : text;
+};
+
+const CHIP = 13.5; // chip font size
 const chipWidth = (tag) => tag.length * CHIP * 0.6 + 12;
 
 /** Lay chips out left to right, wrapping; returns positions and row count. */
@@ -40,15 +46,19 @@ function layoutChips(tags) {
 }
 
 /** Body lines and chip rows a card needs, so all cards can share one height. */
-export const cardMetrics = (p) => ({ lines: wrap(p.description, COLS).length, chipRows: layoutChips(p.tags).rows });
+export const cardMetrics = (p) => ({
+  lines: wrap(p.description, COLS).length + wrap(p.tagline, COLS).length - 1,
+  chipRows: layoutChips(p.tags).rows,
+});
 
 export function projectCard(p, { index = 0, lines, chipRows }) {
   const s = new Session({ width: CARD_W, x: PAD_X, t: 0.5 + index * 0.35, cps: 40 });
   s.cmd('cat README.md', { pause: 0.15 });
   s.out(`<tspan class="b">${esc(p.title)}</tspan>`, { gap: 0.08 });
-  s.out(esc(p.tagline), { cls: 'dim', gap: 0.08 });
+  for (const line of wrap(p.tagline, COLS)) s.out(esc(line), { cls: 'dim', gap: 0.08 });
   s.space(0.35);
   const body = wrap(p.description, COLS);
+  lines -= wrap(p.tagline, COLS).length - 1; // a two-line tagline eats one body line
   for (let i = 0; i < lines; i++) s.out(esc(body[i] ?? ''), { gap: 0.05 });
   s.space(0.3);
 
@@ -56,14 +66,14 @@ export function projectCard(p, { index = 0, lines, chipRows }) {
   s.block((y, t) => {
     const { placed, rows } = layoutChips(p.tags);
     const svg = placed.map(({ tag, x, row, w }, i) => {
-      const yy = y - 13 + row * 24;
+      const yy = y - 15 + row * 27;
       return `<g${anim(`pop .3s ${at(t + i * 0.06)} backwards`)}>` +
-        `<rect x="${n(x)}" y="${n(yy)}" width="${n(w)}" height="18" rx="2" fill="#e6e6e6"/>` +
-        `<text x="${n(x + 6)}" y="${n(yy + 13)}" class="chip">${esc(tag)}</text></g>`;
+        `<rect x="${n(x)}" y="${n(yy)}" width="${n(w)}" height="21" rx="2" fill="#e6e6e6"/>` +
+        `<text x="${n(x + 6)}" y="${n(yy + 15.5)}" class="chip">${esc(tag)}</text></g>`;
     }).join('');
-    return { svg, height: Math.max(rows, chipRows ?? rows) * 24 + 6, duration: p.tags.length * 0.06 };
+    return { svg, height: Math.max(rows, chipRows ?? rows) * 27 + 6, duration: p.tags.length * 0.06 };
   });
-  s.out(`<tspan class="faint">└─ </tspan><tspan class="dim">${esc(p.link.replace(/^https:\/\//, ''))}</tspan>`, { gap: 0.1 });
+  s.out(`<tspan class="faint">└─ </tspan><tspan class="dim">${esc(shortLink(p.link))}</tspan>`, { gap: 0.1 });
   const end = s.end({ bottom: 14 });
 
   const H = Math.ceil(end.height);

@@ -29,17 +29,17 @@ export function goodbye({ pitch }) {
 
 /** A console-style button: `> label ↗` with a blinking caret. */
 export function button({ label, index = 0 }) {
-  const size = 14;
+  const size = 16;
   const cw = size * 0.6;
   const w = Math.ceil((label.length + 7) * cw + 28);
-  const h = 44;
+  const h = 48;
   const textW = (label.length + 4) * cw;
   const x = (w - textW - cw) / 2;
   const blink = `blink 1.06s steps(1) ${at(0.4 + index * 0.18)} infinite`;
   const body = [
     `<rect x=".5" y=".5" width="${w - 1}" height="${h - 1}" rx="8" fill="#000" stroke="#3a3a3a"/>`,
-    `<text x="${n(x)}" y="28"><tspan class="dim">&gt;</tspan> <tspan class="b">${esc(label)}</tspan> <tspan class="dim">↗</tspan></text>`,
-    `<rect x="${n(x + textW)}" y="16" width="${n(cw)}" height="16" fill="#ececec"${anim(blink)}/>`,
+    `<text x="${n(x)}" y="31"><tspan class="dim">&gt;</tspan> <tspan class="b">${esc(label)}</tspan> <tspan class="dim">↗</tspan></text>`,
+    `<rect x="${n(x + textW)}" y="18" width="${n(cw)}" height="18" fill="#ececec"${anim(blink)}/>`,
   ].join('');
   return svgDoc({
     width: w,

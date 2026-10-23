@@ -7,7 +7,7 @@ import { Session } from '../lib/script.mjs';
 import { banner, bannerLayers } from '../art/banner.mjs';
 
 const W = 1000;
-const BANNER_SIZE = 12.5; // font size of the block letters
+const BANNER_SIZE = 15; // font size of the block letters
 const PITCH = BANNER_SIZE * 1.32; // JetBrains Mono's block glyphs tile at 1.32em
 
 function bannerBlock(text) {

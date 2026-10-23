@@ -36,10 +36,10 @@ function logoRow(keys, { label }) {
         `<g class="fr"${anim(`hold .28s linear ${at(start)}`)}>${rows(noise)}</g>`,
         `<g${anim(`on .05s ${at(start + 0.28)} backwards`, `glitch ${at(8 + i * 1.3)} steps(1) ${at(start + 3 + i)} infinite`)}>${rows(lines)}</g>`,
         `</g>`,
-        `<text x="${n(x + artW / 2)}" y="${n(top + artH + 18)}" text-anchor="middle" class="label"${anim(`pop .3s ${at(start + 0.35)} backwards`)}>${esc(icon.label.toLowerCase())}</text>`,
+        `<text x="${n(x + artW / 2)}" y="${n(top + artH + 22)}" text-anchor="middle" class="label"${anim(`pop .3s ${at(start + 0.35)} backwards`)}>${esc(icon.label.toLowerCase())}</text>`,
       );
     });
-    return { svg: parts.join(''), height: artH + 58, duration: 0.15 + keys.length * 0.13 + 0.3 };
+    return { svg: parts.join(''), height: artH + 66, duration: 0.15 + keys.length * 0.13 + 0.3 };
   };
 }
 
@@ -65,7 +65,7 @@ export function stack({ rows, more }) {
   const H = Math.ceil(end.height);
   const style = fontFaces({ bold: true }) + BASE_CSS + `
 .logo text{font-size:${LOGO.size}px;font-weight:700;fill:url(#shine)}
-.label{font-size:12px;fill:#bdbdbd}
+.label{font-size:15px;fill:#bdbdbd}
 .fr{opacity:0}
 @keyframes glitch{0%,94%{transform:none}95%{transform:translateX(-6px)}97%{transform:translateX(4px)}98%,100%{transform:none}}
 ${end.css}`;

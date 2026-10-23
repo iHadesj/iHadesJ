@@ -7,11 +7,11 @@
 
 import { esc, n } from './svg.mjs';
 
-export const FONT = 13; // body text size, in viewBox units
+export const FONT = 16; // body text size, in viewBox units
 export const CW = FONT * 0.6; // monospace advance
-export const LH = 21; // line height of body text
+export const LH = 26; // line height of body text
 export const PAD = 24; // inner padding of a window
-export const BAR = 30; // title bar height
+export const BAR = 34; // title bar height
 
 export const USER = 'hades';
 export const HOST = 'grajau';
@@ -19,7 +19,7 @@ export const HOST = 'grajau';
 export const BASE_CSS = `
 text{font-family:JBM,ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:${FONT}px;fill:#ececec;white-space:pre}
 .b{font-weight:700}.dim{fill:#8c8c8c}.faint{fill:#505050}
-.chrome{fill:#6b6b6b;font-size:11.5px}
+.chrome{fill:#6b6b6b;font-size:13.5px}
 @keyframes on{from{opacity:0}to{opacity:1}}
 @keyframes hold{from,to{opacity:1}}
 @keyframes pop{0%{opacity:0}35%{opacity:1}55%{opacity:.3}75%{opacity:1}100%{opacity:1}}
@@ -38,8 +38,8 @@ export function windowFrame({ width, height, title }) {
   return [
     `<rect x=".5" y=".5" width="${width - 1}" height="${height - 1}" rx="10" fill="#000" stroke="#2c2c2c"/>`,
     `<path d="M1 ${BAR}H${width - 1}" stroke="#1d1d1d"/>`,
-    [0, 1, 2].map((k) => `<circle cx="${20 + k * 17}" cy="${BAR / 2}" r="4.6" fill="none" stroke="#4a4a4a" stroke-width="1.2"/>`).join(''),
-    `<text x="${width / 2}" y="${BAR / 2 + 4}" text-anchor="middle" class="chrome">${esc(title)}</text>`,
+    [0, 1, 2].map((k) => `<circle cx="${20 + k * 17}" cy="${BAR / 2}" r="5.2" fill="none" stroke="#4a4a4a" stroke-width="1.2"/>`).join(''),
+    `<text x="${width / 2}" y="${BAR / 2 + 5}" text-anchor="middle" class="chrome">${esc(title)}</text>`,
   ].join('');
 }
 

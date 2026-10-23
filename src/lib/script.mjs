@@ -6,7 +6,7 @@ import { esc, n } from './svg.mjs';
 import { CW, LH, PAD, BAR, typed, prompt, cursor, anim, at } from './term.mjs';
 
 export class Session {
-  constructor({ width, x = PAD, y = BAR + 30, t = 0.45, cps = 30 }) {
+  constructor({ width, x = PAD, y = BAR + 34, t = 0.45, cps = 30 }) {
     Object.assign(this, { width, x, y, t, cps });
     this.parts = [];
     this.css = [];
