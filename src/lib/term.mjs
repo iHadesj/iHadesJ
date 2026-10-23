@@ -18,8 +18,9 @@ export const HOST = 'grajau';
 
 export const BASE_CSS = `
 text{font-family:JBM,ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:${FONT}px;fill:#ececec;white-space:pre}
-.b{font-weight:700}.dim{fill:#8c8c8c}.faint{fill:#505050}
-.chrome{fill:#6b6b6b;font-size:13.5px}
+.b{font-weight:700}.dim{fill:#a6a6a6}.faint{fill:#6e6e6e}
+.ok{fill:#5af78e}.path{fill:#57c7ff}.key{fill:#f3c969}.dir{fill:#57c7ff;font-weight:700}
+.chrome{fill:#8a8a8a;font-size:13.5px}
 @keyframes on{from{opacity:0}to{opacity:1}}
 @keyframes hold{from,to{opacity:1}}
 @keyframes pop{0%{opacity:0}35%{opacity:1}55%{opacity:.3}75%{opacity:1}100%{opacity:1}}
@@ -36,7 +37,7 @@ export const at = (t) => `${n(t, 3)}s`;
 /** Window: black body, hairline border, title bar with three hollow dots. */
 export function windowFrame({ width, height, title }) {
   return [
-    `<rect x=".5" y=".5" width="${width - 1}" height="${height - 1}" rx="10" fill="#000" stroke="#2c2c2c"/>`,
+    `<rect x=".5" y=".5" width="${width - 1}" height="${height - 1}" rx="10" fill="#000" stroke="#333"/>`,
     `<path d="M1 ${BAR}H${width - 1}" stroke="#1d1d1d"/>`,
     [0, 1, 2].map((k) => `<circle cx="${20 + k * 17}" cy="${BAR / 2}" r="5.2" fill="none" stroke="#4a4a4a" stroke-width="1.2"/>`).join(''),
     `<text x="${width / 2}" y="${BAR / 2 + 5}" text-anchor="middle" class="chrome">${esc(title)}</text>`,
@@ -80,7 +81,7 @@ export function prompt({ x, y, path = '~', cls = '' }) {
   return {
     svg:
       `<text x="${n(x)}" y="${n(y)}"${cls ? ` class="${cls}"` : ''}>` +
-      `<tspan class="b">${head}</tspan><tspan class="dim">${esc(tail)}</tspan></text>`,
+      `<tspan class="b ok">${head}</tspan><tspan class="dim">:</tspan><tspan class="b path">${esc(path)}</tspan><tspan class="dim">$ </tspan></text>`,
     width: (head.length + tail.length) * CW,
   };
 }

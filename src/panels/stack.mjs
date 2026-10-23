@@ -21,7 +21,7 @@ function logoRow(keys, { label }) {
   const artH = LOGO.rows * LOGO.size;
 
   return (y, t) => {
-    const parts = [`<text x="${PAD}" y="${n(y)}" class="faint"${anim(`pop .3s ${at(t)} backwards`)}>${esc(label)}</text>`];
+    const parts = [`<text x="${PAD}" y="${n(y)}" class="key"${anim(`pop .3s ${at(t)} backwards`)}>${esc(label)}</text>`];
     const top = y + 10;
     keys.forEach((key, i) => {
       const icon = ICONS[key];
@@ -32,7 +32,8 @@ function logoRow(keys, { label }) {
       const start = t + 0.15 + i * 0.13;
       const rows = (ls) => textRows(ls, { x, y: top, cellW: cw, cellH: LOGO.size, baseline: 0.8 });
       parts.push(
-        `<g class="logo">`,
+        // ambient: a slow opacity wave rolling across the grid (cheap to composite)
+        `<g class="logo"${anim(`wave 3.2s ease-in-out ${at(start + 2 + i * 0.25)} infinite`)}>`,
         `<g class="fr"${anim(`hold .28s linear ${at(start)}`)}>${rows(noise)}</g>`,
         `<g${anim(`on .05s ${at(start + 0.28)} backwards`, `glitch ${at(8 + i * 1.3)} steps(1) ${at(start + 3 + i)} infinite`)}>${rows(lines)}</g>`,
         `</g>`,
@@ -58,21 +59,19 @@ export function stack({ rows, more }) {
     if (next.length > max) { lines.push(line); line = item; } else line = next;
   }
   lines.push(line);
-  lines.forEach((l, i) => s.out(`<tspan class="b">${i ? ' ' : '+'}</tspan> <tspan class="dim">${esc(l).replace(/ · /g, '<tspan class="faint"> · </tspan>')}</tspan>`));
+  lines.forEach((l, i) => s.out(`<tspan class="b ok">${i ? ' ' : '+'}</tspan> <tspan class="dim">${esc(l).replace(/ · /g, '<tspan class="faint"> · </tspan>')}</tspan>`));
   s.space(0.5);
   const end = s.end();
 
   const H = Math.ceil(end.height);
   const style = fontFaces({ bold: true }) + BASE_CSS + `
-.logo text{font-size:${LOGO.size}px;font-weight:700;fill:url(#shine)}
-.label{font-size:15px;fill:#bdbdbd}
+.logo text{font-size:${LOGO.size}px;font-weight:700;fill:#e8e8e8}
+.label{font-size:15px;fill:#ededed}
+@keyframes wave{0%,100%{opacity:1}50%{opacity:.55}}
 .fr{opacity:0}
 @keyframes glitch{0%,94%{transform:none}95%{transform:translateX(-6px)}97%{transform:translateX(4px)}98%,100%{transform:none}}
 ${end.css}`;
-  const defs = `<linearGradient id="shine" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="${W}" y2="${H * 0.6}">
-<stop offset="0" stop-color="#cfcfcf"/><stop offset=".42" stop-color="#cfcfcf"/><stop offset=".5" stop-color="#ffffff"/><stop offset=".58" stop-color="#cfcfcf"/><stop offset="1" stop-color="#cfcfcf"/>
-<animateTransform attributeName="gradientTransform" type="translate" values="-${W} 0;-${W} 0;${W} 0" keyTimes="0;.5;1" dur="7s" begin="3s" repeatCount="indefinite"/>
-</linearGradient>`;
+
 
   return svgDoc({
     width: W,
@@ -80,7 +79,6 @@ ${end.css}`;
     title: 'stack',
     desc: `Stack: ${rows.flatMap((r) => r.icons.map((k) => ICONS[k].label)).join(', ')}; também ${more.join(', ')}.`,
     style,
-    defs,
     body: windowFrame({ width: W, height: H, title: 'hades@grajau: ~ — stack' }) + end.svg,
   });
 }

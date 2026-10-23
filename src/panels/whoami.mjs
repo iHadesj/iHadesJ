@@ -19,7 +19,7 @@ function bannerBlock(text) {
     const top = y - 6;
     // solid blocks as one path of rectangles (glyphs side by side leave seams)
     const blocks = (from, to) => rectsPath(face.slice(from, to).flatMap((line, i) =>
-      [...line.matchAll(/█+/g)].map((m) => ({ x: PAD + m.index * cw, y: top + (from + i) * PITCH, w: m[0].length * cw, h: PITCH }))));
+      [...line.matchAll(/█+/g)].map((m) => ({ x: PAD + m.index * cw, y: top + (from + i) * PITCH, w: m[0].length * cw, h: PITCH + 0.6 })))); // +0.6: rows overlap, no seams
     const shadowText = textRows(shadow, { x: PAD, y: top, cellW: cw, cellH: PITCH, baseline: 1.02 / 1.32, attrs: ' class="bn-shadow"' });
     const dur = 0.85;
     const svg = [
@@ -53,7 +53,7 @@ export function whoami({ name, tagline, about, focus }) {
   s.cmd('ls ~/foco');
   const colW = Math.max(...focus.map((f) => f.length)) + 4;
   for (let i = 0; i < focus.length; i += 2) {
-    const cell = (f) => (f ? `${esc(f)}<tspan class="faint">/</tspan>${' '.repeat(colW - f.length - 1)}` : '');
+    const cell = (f) => (f ? `<tspan class="dir">${esc(f)}</tspan><tspan class="faint">/</tspan>${' '.repeat(colW - f.length - 1)}` : '');
     s.out(cell(focus[i]) + cell(focus[i + 1]), { indent: 2 });
   }
   s.space(0.5);

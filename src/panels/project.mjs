@@ -54,7 +54,7 @@ export const cardMetrics = (p) => ({
 export function projectCard(p, { index = 0, lines, chipRows }) {
   const s = new Session({ width: CARD_W, x: PAD_X, t: 0.5 + index * 0.35, cps: 40 });
   s.cmd('cat README.md', { pause: 0.15 });
-  s.out(`<tspan class="b">${esc(p.title)}</tspan>`, { gap: 0.08 });
+  s.out(`<tspan class="b key">${esc(p.title)}</tspan>`, { gap: 0.08 });
   for (const line of wrap(p.tagline, COLS)) s.out(esc(line), { cls: 'dim', gap: 0.08 });
   s.space(0.35);
   const body = wrap(p.description, COLS);
@@ -73,7 +73,7 @@ export function projectCard(p, { index = 0, lines, chipRows }) {
     }).join('');
     return { svg, height: Math.max(rows, chipRows ?? rows) * 27 + 6, duration: p.tags.length * 0.06 };
   });
-  s.out(`<tspan class="faint">└─ </tspan><tspan class="dim">${esc(shortLink(p.link))}</tspan>`, { gap: 0.1 });
+  s.out(`<tspan class="faint">└─ </tspan><tspan class="path">${esc(shortLink(p.link))}</tspan>`, { gap: 0.1 });
   const end = s.end({ bottom: 14 });
 
   const H = Math.ceil(end.height);

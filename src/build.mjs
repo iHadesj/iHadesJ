@@ -10,6 +10,7 @@ import { xp } from './panels/xp.mjs';
 import { goodbye, button } from './panels/contact.mjs';
 import { readme } from './readme.mjs';
 import { missingGlyphs } from './lib/guard.mjs';
+import { embedFonts } from './lib/fonts.mjs';
 
 const OUT = new URL('../assets/', import.meta.url);
 
@@ -37,7 +38,7 @@ for (const dir of ['projects/', 'links/']) mkdirSync(new URL(dir, OUT), { recurs
 for (const [name, render] of Object.entries(panels)) {
   if (only.length && !only.some((o) => name.startsWith(o))) continue;
   const started = performance.now();
-  const svg = render();
+  const svg = embedFonts(render());
   const missing = missingGlyphs(svg);
   if (missing.length) {
     console.error(`✗ ${name}: not in the embedded font: ${missing.join(' ')} (see scripts/subset-fonts.sh)`);

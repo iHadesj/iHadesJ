@@ -82,7 +82,7 @@ export function hero({ title, command, result, session, status, art: artOptions 
     const y = (l.r + 0.85) * CELL_H;
     const w = l.text.length * logSize * 0.6;
     const backing = `<rect x="${n(x - w - 3)}" y="${n(y - logSize * 0.8)}" width="${n(w + 6)}" height="${n(logSize * 1.05)}" fill="#000"/>`;
-    const text = `<text class="log" x="${n(-x)}" y="${n(y)}" transform="scale(-1 1)">${esc(l.text)}</text>`;
+    const text = `<text class="log${l.epoch % 6 === 0 ? ' mark' : ''}" x="${n(-x)}" y="${n(y)}" transform="scale(-1 1)">${esc(l.text)}</text>`;
     return `<g${anim(`pop .4s ${at(tOf(l.epoch))} backwards`)}>${backing}${text}</g>`;
   }).join('');
 
@@ -91,7 +91,7 @@ export function hero({ title, command, result, session, status, art: artOptions 
 
   // --- after the run ------------------------------------------------------------------
   const out = `<text x="${PAD}" y="${outY}"${anim(`pop .4s ${at(tOut)} backwards`)}>` +
-    `<tspan class="b">✓</tspan> ${esc(result[0])}<tspan class="dim">${esc(result[1])}</tspan></text>`;
+    `<tspan class="b ok">✓</tspan> ${esc(result[0])}<tspan class="dim">${esc(result[1])}</tspan></text>`;
   const p2 = prompt({ x: PAD, y: outY + LH });
 
   // --- status bar (tmux-ish) -------------------------------------------------------------
@@ -101,18 +101,16 @@ export function hero({ title, command, result, session, status, art: artOptions 
     `<path d="M1 ${statusY - 2}H${W - 1}" stroke="#1d1d1d"/>`,
     `<text x="${PAD}" y="${statusY + 19}" class="sb"><tspan class="faint">[${esc(session)}]</tspan> <tspan class="dim">0:train*</tspan> <tspan class="faint">1:zsh</tspan></text>`,
     `<rect x="${barX}" y="${statusY + 8}" width="${barW}" height="10" fill="none" stroke="#3a3a3a"/>`,
-    `<rect x="${barX + 2}" y="${statusY + 10}" width="${barW - 4}" height="6" fill="#bdbdbd" style="transform-origin:${barX + 2}px 0;animation:grow ${at(tOf(5) - t0)} steps(5,end) ${at(t0)} backwards"/>`,
+    `<rect x="${barX + 2}" y="${statusY + 10}" width="${barW - 4}" height="6" fill="#5af78e" style="transform-origin:${barX + 2}px 0;animation:grow ${at(tOf(5) - t0)} steps(5,end) ${at(t0)} backwards"/>`,
     `<text x="${W - PAD}" y="${statusY + 19}" text-anchor="end" class="sb dim">${esc(status)}</text>`,
   ].join('');
 
-  // --- CRT dressing: scanlines + a slow refresh band over the art --------------------------
-  const crt =
-    `<rect x="${ax}" y="${ay}" width="${art.cols * CELL_W}" height="${artH}" fill="url(#scan)" pointer-events="none"/>` +
-    `<rect x="${ax}" y="${ay - 80}" width="${art.cols * CELL_W}" height="80" fill="url(#refresh)" style="animation:refresh 7s linear ${at(tDone)} infinite"/>`;
+  // --- CRT dressing: static scanlines (painted once, never animated) -----------------------
+  const crt = `<rect x="${ax}" y="${ay}" width="${art.cols * CELL_W}" height="${artH}" fill="url(#scan)"/>`;
 
   const style = fontFaces({ bold: true }) + BASE_CSS + `
 .art text{font-size:10px;font-weight:700;fill:#ededed}
-.log{font-size:${n(logSize)}px;fill:#c9c9c9}
+.log{font-size:${n(logSize)}px;fill:#dedede}.log.mark{fill:#5af78e}
 .sb{font-size:13.5px}
 .fr{opacity:0}
 @keyframes glitch{0%,90%{transform:none}91%{transform:translateX(-12px)}93%{transform:translateX(7px)}95%{transform:translateX(-4px)}96%,100%{transform:none}}
@@ -121,12 +119,10 @@ export function hero({ title, command, result, session, status, art: artOptions 
 @keyframes ignite{0%{opacity:0}30%{opacity:1}45%{opacity:.2}60%{opacity:1}100%{opacity:1}}
 @keyframes breathe{0%,100%{opacity:1}50%{opacity:.72}}
 @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@keyframes refresh{from{transform:translateY(0)}to{transform:translateY(${artH + 80}px)}}
 ${cmd.css}`;
 
   const defs = `
-<pattern id="scan" width="8" height="3" patternUnits="userSpaceOnUse"><rect width="8" height="1" fill="#000" opacity=".2"/></pattern>
-<linearGradient id="refresh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#fff" stop-opacity=".022"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<pattern id="scan" width="8" height="3" patternUnits="userSpaceOnUse"><rect width="8" height="1" fill="#000" opacity=".12"/></pattern>
 <filter id="glow" x="-60%" y="-120%" width="220%" height="340%"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <clipPath id="screen"><rect x="${ax}" y="${ay}" width="${art.cols * CELL_W}" height="${artH}"/></clipPath>`;
 
@@ -138,10 +134,18 @@ ${cmd.css}`;
     `<g transform="translate(${ax} ${ay})">`,
     `<g class="art">${early}${final}</g>`,
     debris,
-    log,
     `</g>`,
     crt,
-    `<path transform="translate(${ax} ${ay})" d="${eyes}" fill="#fff" filter="url(#glow)"${anim(`ignite .9s ease-out ${at(tDone)} backwards`, `breathe 3.4s ease-in-out ${at(tDone + 0.9)} infinite`)}/>`,
+    // log and eyes sit above the scanlines so they stay crisp
+    `<g transform="translate(${ax} ${ay})">`,
+    log,
+    // the blurred halo is static (a filter is costly to re-run every frame);
+    // only the unfiltered core breathes
+    `<g${anim(`ignite .9s ease-out ${at(tDone)} backwards`)}>`,
+    `<path d="${eyes}" fill="#fff" filter="url(#glow)" opacity=".75"/>`,
+    `<path d="${eyes}" fill="#fff"${anim(`breathe 3.4s ease-in-out ${at(tDone + 0.9)} infinite`)}/>`,
+    `</g>`,
+    `</g>`,
     `</g>`,
     out,
     `<g${anim(`on .01s ${at(tPrompt)} backwards`)}>${p2.svg}</g>`,

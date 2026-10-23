@@ -28,6 +28,9 @@ jobs:
         with:
           node-version: 22
 
+      - name: Font subsetting tools
+        run: pip install --quiet fonttools brotli
+
       - name: Render panels
         run: npm run build
 

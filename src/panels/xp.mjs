@@ -49,8 +49,8 @@ export function xp({ jobs, stages, notes }) {
   const s = new Session({ width: W });
   s.cmd('cat ~/xp.log');
   for (const job of jobs) {
-    s.out(`<tspan class="b">${esc(job.when)}</tspan>  ${esc(job.where)}<tspan class="dim"> · ${esc(job.role)}</tspan>`);
-    for (const line of job.lines) s.out(`<tspan class="faint">│</tspan>  ${esc(line[0])}<tspan class="dim">${esc(line[1] ?? '')}</tspan>`, { indent: 1 });
+    s.out(`<tspan class="b key">${esc(job.when)}</tspan>  <tspan class="b">${esc(job.where)}</tspan><tspan class="dim"> · ${esc(job.role)}</tspan>`);
+    for (const line of job.lines) s.out(`<tspan class="faint">│</tspan>  <tspan class="${line[1] ? 'dim' : ''}">${esc(line[0])}</tspan>${esc(line[1] ?? '')}`, { indent: 1 });
   }
   s.space(0.6);
   s.cmd('./pipeline --watch');
@@ -61,7 +61,7 @@ export function xp({ jobs, stages, notes }) {
 
   const H = Math.ceil(end.height);
   const style = fontFaces({ bold: true }) + BASE_CSS + `
-.pd{fill:#d9d9d9}.pp{fill:#4d4d4d}.pr{fill:#fff;font-weight:700}
+.pd{fill:#5af78e}.pp{fill:#6e6e6e}.pr{fill:#f3c969;font-weight:700}
 .spin{animation:blink .5s steps(1) infinite}
 ${end.css}`;
   return svgDoc({

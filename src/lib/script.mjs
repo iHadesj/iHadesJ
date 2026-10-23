@@ -41,7 +41,7 @@ export class Session {
   /** Key/value rows: dim key column, bright value. */
   table(rows, { keyWidth = 11, indent = 2 } = {}) {
     for (const [k, v] of rows) {
-      this.out(`<tspan class="dim">${esc(k.padEnd(keyWidth))}</tspan>${esc(v)}`, { indent });
+      this.out(`<tspan class="key">${esc(k.padEnd(keyWidth))}</tspan>${esc(v)}`, { indent });
     }
     return this;
   }

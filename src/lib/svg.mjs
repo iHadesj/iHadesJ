@@ -2,22 +2,17 @@
 // GitHub renders README images through <img>, so: no scripts, no external
 // resources. Everything (fonts included) has to live inside the file.
 
-import { readFileSync } from 'node:fs';
-
-const FONT_DIR = new URL('../fonts/', import.meta.url);
-
 export const esc = (s) =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-const fontData = (file) => readFileSync(new URL(file, FONT_DIR)).toString('base64');
-
-/** @font-face rules for the embedded JetBrains Mono subsets. */
+/**
+ * @font-face rules for JetBrains Mono. The data is a placeholder: the build
+ * (lib/fonts.mjs) fills in a subset with just the glyphs each file uses.
+ */
 export function fontFaces({ bold = false } = {}) {
-  const face = (weight, file) =>
-    `@font-face{font-family:'JBM';font-weight:${weight};src:url(data:font/woff2;base64,${fontData(file)}) format('woff2')}`;
-  return [face(400, 'JetBrainsMono-Regular.subset.woff2'), bold && face(700, 'JetBrainsMono-Bold.subset.woff2')]
-    .filter(Boolean)
-    .join('');
+  const face = (weight) =>
+    `@font-face{font-family:'JBM';font-weight:${weight};src:url(data:font/woff2;base64,__JBM${weight}__) format('woff2')}`;
+  return [face(400), bold && face(700)].filter(Boolean).join('');
 }
 
 // numbers in SVG output: short, stable, no "-0"

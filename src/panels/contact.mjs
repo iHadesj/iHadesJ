@@ -10,7 +10,7 @@ const W = 1000;
 export function goodbye({ pitch }) {
   const s = new Session({ width: W });
   s.cmd('./contato');
-  s.out(`${esc(pitch)} <tspan class="b">↓</tspan>`);
+  s.out(`${esc(pitch)} <tspan class="b ok">↓</tspan>`);
   s.space(0.4);
   s.cmd('exit', { pause: 0.4 });
   s.print('logout', { cls: 'dim', gap: 0.35 });
@@ -37,8 +37,8 @@ export function button({ label, index = 0 }) {
   const x = (w - textW - cw) / 2;
   const blink = `blink 1.06s steps(1) ${at(0.4 + index * 0.18)} infinite`;
   const body = [
-    `<rect x=".5" y=".5" width="${w - 1}" height="${h - 1}" rx="8" fill="#000" stroke="#3a3a3a"/>`,
-    `<text x="${n(x)}" y="31"><tspan class="dim">&gt;</tspan> <tspan class="b">${esc(label)}</tspan> <tspan class="dim">↗</tspan></text>`,
+    `<rect x=".5" y=".5" width="${w - 1}" height="${h - 1}" rx="8" fill="#000" stroke="#4a4a4a"/>`,
+    `<text x="${n(x)}" y="31"><tspan class="ok">&gt;</tspan> <tspan class="b">${esc(label)}</tspan> <tspan class="dim">↗</tspan></text>`,
     `<rect x="${n(x + textW)}" y="18" width="${n(cw)}" height="18" fill="#ececec"${anim(blink)}/>`,
   ].join('');
   return svgDoc({
