@@ -16,7 +16,7 @@ export function readme({ whoami, stack, projects, xp, contact, text }) {
     img('assets/whoami.svg', `whoami: ${whoami.name}, ${whoami.tagline.join(', ')}`, 'width="100%"'),
     img('assets/stack.svg', `Stack: ${logos.join(', ')}`, 'width="100%"'),
     ...projects.map((p) => link(p.link, img(`assets/projects/${p.slug}.svg`, `${p.title}: ${p.tagline}`, 'width="49%"'))),
-    img('assets/xp.svg', `Experiência: ${xp.jobs.map((j) => `${j.where} (${j.when})`).join(', ')}. Fluxo: ${xp.stages.join(' → ')}`, 'width="100%"'),
+    img('assets/xp.svg', `Experiência: ${xp.jobs.map((j) => `${j.where} (${j.when})`).join(', ')}`, 'width="100%"'),
     img('assets/contact.svg', contact.pitch, 'width="100%"'),
   ];
   const buttons = contact.links.map((l) => link(l.href, img(`assets/links/${l.id}.svg`, l.label, 'height="44"')));
@@ -36,9 +36,7 @@ export function readme({ whoami, stack, projects, xp, contact, text }) {
     '',
     ...xp.jobs.map((j) => `**${j.where}** · ${j.role} · ${j.when.replace('→', 'a')}  \n${j.summary}`),
     '',
-    `\`${xp.stages.join(' → ')}\``,
-    '',
-    xp.notes.join(' '),
+    ...xp.why.map((l) => `> ${l}  `),
     '',
     `${contact.pitch}: ${contact.links.map((l) => `[${l.label}](${l.href})`).join(' · ')}`,
   ];

@@ -121,11 +121,12 @@ export const profile = {
         ],
       },
     ],
-    stages: ['ideia', 'regra de negócio', 'experiência', 'código', 'teste', 'evolução'],
-    notes: [
-      'projeto pessoal não é só tela bonita: é onde eu treino o que faria num produto de verdade —',
-      'estrutura de domínio, tela de erro e de vazio, persistência, performance e documentação.',
-      'quando é simulação, deixo claro onde ela termina e onde começaria um sistema de produção.',
+    why: [
+      'code got cheap. reading it never did.',
+      'the crowd hands its thinking to a prompt and ships whatever comes back.',
+      'i stay in the editor, line by line, learning how things are meant to stand.',
+      'to me code was always a kind of art, and art was never meant to be outsourced.',
+      'every repo here is my taste in syntax. the judgment is mine too.',
     ],
   },
 

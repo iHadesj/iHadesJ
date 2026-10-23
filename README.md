@@ -9,7 +9,7 @@
 <a href="https://github.com/iHadesj/DevTrack"><img src="assets/projects/devtrack.svg" width="49%" alt="DevTrack: Tracker de progresso de estudos e projetos." /></a>
 <a href="https://github.com/iHadesj/JPA_PostgreSQL"><img src="assets/projects/jpa-postgresql.svg" width="49%" alt="API Java + PostgreSQL: CRUD limpo em arquitetura MVC." /></a>
 <a href="https://github.com/iHadesj/Projeto_CRUD"><img src="assets/projects/projeto-crud.svg" width="49%" alt="Projeto CRUD: Base de CRUD com JDBC/MySQL." /></a>
-<img src="assets/xp.svg" width="100%" alt="Experiência: VTT · Vector Two Technologies (2025.02 → 2026.10). Fluxo: ideia → regra de negócio → experiência → código → teste → evolução" />
+<img src="assets/xp.svg" width="100%" alt="Experiência: VTT · Vector Two Technologies (2025.02 → 2026.10)" />
 <img src="assets/contact.svg" width="100%" alt="curtiu algum projeto ou quer trocar ideia sobre vaga? é só chamar" />
 <a href="https://www.linkedin.com/in/eduardo-alexandre-java/"><img src="assets/links/linkedin.svg" height="44" alt="linkedin" /></a>
 <a href="https://edu-ferreira.vercel.app"><img src="assets/links/portfolio.svg" height="44" alt="portfólio" /></a>
@@ -45,9 +45,11 @@ Gosto de fazer o app funcionar primeiro e depois foco na estética: regra de neg
 **VTT · Vector Two Technologies** · desenvolvedor web · 2025.02 a 2026.10  
 Projetos de digital signage e retail media pro varejo. Entrei sabendo HTML, CSS, JavaScript, Java e MySQL e saí com React, Tomcat e mais noção de arquitetura de sistema.
 
-`ideia → regra de negócio → experiência → código → teste → evolução`
-
-projeto pessoal não é só tela bonita: é onde eu treino o que faria num produto de verdade — estrutura de domínio, tela de erro e de vazio, persistência, performance e documentação. quando é simulação, deixo claro onde ela termina e onde começaria um sistema de produção.
+> code got cheap. reading it never did.  
+> the crowd hands its thinking to a prompt and ships whatever comes back.  
+> i stay in the editor, line by line, learning how things are meant to stand.  
+> to me code was always a kind of art, and art was never meant to be outsourced.  
+> every repo here is my taste in syntax. the judgment is mine too.  
 
 curtiu algum projeto ou quer trocar ideia sobre vaga? é só chamar: [linkedin](https://www.linkedin.com/in/eduardo-alexandre-java/) · [portfólio](https://edu-ferreira.vercel.app) · [repositórios](https://github.com/iHadesj?tab=repositories)
 
