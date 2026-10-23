@@ -1,2 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# assets/ and README.md are build output (src/ → npm run build)
+assets/** linguist-generated=true
+README.md linguist-generated=false
+*.woff2 binary

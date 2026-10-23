@@ -1,0 +1,44 @@
+# Rebuilds the SVG panels and README.md whenever the generator or the
+# profile data changes, then commits the result back to the branch.
+name: build profile
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'package.json'
+      - '.github/workflows/build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-profile
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Render panels
+        run: npm run build
+
+      - name: Commit if anything changed
+        run: |
+          if [ -z "$(git status --porcelain -- assets README.md)" ]; then
+            echo "assets already up to date"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets README.md
+          git commit -m "chore: rebuild profile panels"
+          git push
