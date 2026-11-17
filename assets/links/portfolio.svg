@@ -1,18 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 182 48" width="182" height="48" role="img" aria-labelledby="t d" xml:space="preserve">
-<title id="t">portfólio</title>
-<desc id="d">link: portfólio</desc>
-<style>@font-face{font-family:'JBM';font-weight:400;src:url(data:font/woff2;base64,d09GMgABAAAAAAQ0AA4AAAAACEgAAAPfAAJN0wAAAAAAAAAAAAAAAAAAAAAAAAAAGhwbIBwqBmAAgQgRCAqFbIRPATYCJAM+CyIABCAFhBgHIBuUBgAeielGg/wfkjMxIXjgv9P+3DupMjWmC7HkVNqARbKmP/eB/JKS/+oAkfP/3zu+bfsn7PgfYWAhR2PM2wNqLl7reCehhMemzUULLKACxIAt3WSlRQgI4nV979DTIIBgAEAiEUgEBoIQCMBIMqmInLySagIxAPh8AYAAjPSiDxIzWWiHaUYX8UhgukHWiy34gVwn64Hi/C8UrQwTGSAhCAAABdAAAIqygCdo6buVf/9/C5R/xQBAAMhe8gNAwx+QgAJEoyCAaAzMAOIJRyEQjQlMwo6LDrxMYwa/pO/2+aJLeficveZl++21J3y77BT1ySwEgQrmBvgRgED4FAZAOAAaEAq8ACGBZCAaAPBRgUAqyJQARAxHGUN15ZjQ6OiQkLBgg6oYhSqWvquqGNdBFpGqaJhDPEbIuneEZRuWPFRVTKZFV69/G5a8Vbv+3VP2jnHdW6Vv1/ipqMf7ZqNkdzPWULf+TZjwDWXVbGxpL4ckIapQ2XVUv6NOWE7fjtt1q5dZmPCYhYUpJ25E77zZ09RWFyKrlaWH46y6Y8cNo3vdI7H0sbr+IUseuOvU6nfXHtGPTM+sLCo4qh/NGDf9c/3ztdToz5dd1oPeuquzoLC2Ou/nR3r85G612jmd/gGWGdOdi1zTp1mt06e5FjlnTDeXj8/KzNiWkZU5flz2QJ1ckqbrHzS6hK18wqQqU0fb0TZTZ9Wk8olWRSw4MvuPf7KP5Pw9OiN30q5Jxz3g7dXoktbiiRm1zfa2wY2D58wcPzE7oxVLTmVZVvYh/dD+xv2f659nJ8ukIzrVGXUjd/cJnro0JWDknsaL71iRGbdaDC1JcuD1KF5XVrZ0pa4nhmcWudvXdHbuGhpN/zXplSmpenq6nppSiWeFa72paz2yFwoQQKh0UOH7vWKYNEM3gBqQ/ZUgqn1/SoMSgQBk6Zvv3jzyb1vYhN8Cw5TvAD79zj4X4Ivgr2r++t8r/zNMAfyRAAj4cdyyHiHxNY1AEKJhsp5Gg9HCGkgVVkMzeGEwIKz5rsHw/8b/tyCAcHGHLlbjz7CbggQCaERBGIKABzCmBck8oCWhvEcrTOAb2sAA0Y32I0+U7edPP7GDbDx4mcs0XDhwMgONYQwR1Kiugi27CBszyELKm3DRxXT5Ujx04cEKpuk+bmxYmIFGJjOZgRMP05iORp+5cQZex3EMjsSBC/WemZgZhAUPnQxmql03cvffd2WoY1PFmXRgYhrD5IczhBGMHzeL8XN3Gfh+/dJNe0gttu+2uTCdGrdN2wdix7RDxINTbDMcZzEULR3DoGH1XZ9PIajmszEMEAAAAAA=) format('woff2')}@font-face{font-family:'JBM';font-weight:700;src:url(data:font/woff2;base64,d09GMgABAAAAAAQMAA4AAAAACDgAAAO5AAJN0wAAAAAAAAAAAAAAAAAAAAAAAAAAGhwbIBwqBmAAgQgRCAqFdIRKATYCJAM+CyIABCAFhAAHIBt3BgAeg+NuKW2KIYZY/mtXbx4tgmIs3bsAg4xMPJEk1oDj08o3qqTZVrgKU4XC1z34QJ7+SzNnRjsik5hVSD0Ap2/eh/99BXkX818dwKc/lV+25YI5n61baS/KOu+YVpzWgtQKWuGxKYBfO7lAi1AK/y4uRplSc7bn/p1CVqAZkFJIoVqDEGg0zBexXFTRAAvVUPkfwPiZFYqznO01o1fBnYTV1dnCOQdTssBpAWy1/8I4Ax05QNIAoArjAGwuAt6AO7Gd/FO+R1UxIkFAzuYTjDNDogrdSIFuJp5BP3ukeuMyZBGRUlDT0vs8sf3//1RF1vvslut222lHqGyzldMvIwhBbEZAjTohKmoD7YBx0IofoIRh0A3AV0NIQ7YCEXXdjba2ts57dtvY2FmbUKQVQRETDykKjYUTwGklRVSSNlZDS+EB4d0m4+cpCpcexvuX7sPLvaalu4t8x2rxVs/tRlMK78uRPWlFL/o3op3iKBcaK7nUsCmCEn/k8ZMUhf3gH99027YR3EswYK8IPno+rDlvXQ9iupttOA3kxH43QZN4y5qVbPECMXGRWjqP8XOyZqrhkmy7ZjtT0t1YfVC1z/2KW/ddzV0ZKh7OFZzQBK2f1GCmrpep2VzX0EF+gb4HNYiolw0ZheOiIYNMdl8hGhcOGaUKWpQwnyCi/blQ8e3JoPBtZVpaYk18ZFf21m5GV5tWlf6enNglcInNT1pNyo+NLU2cTiwFMzso31qVld3QKWcSRqLphFg6PbkW/J22lgr7HZodu0d3P9U8tXH/6H5Yg/IFHW8mRX7o4FAIb9Zw8c4IqIUteIRLguJgMrTtFRH3EsncklrDcdwty8ptrC0pmqadEfEqeIPH2wi2AzExLV2a1SyBM4tEndaUIUObXmJb9gKTwDbkXJWjosr3dKxyQCB37np035jutsv4X29HfoLfn0QDAP+s3+3+zCmr8291Dwi1EgT/TDEPCKHSPkcI1bZsQZsjjq2AF1uESjAIAOLcZ/Gg/Lo8ikB7nILKEDOF86ok6hwhRbUl+A48K2HYOSXV+6lUmfdKqTYbrkqN1cjwVms6JpGPpTZAS0pMQo+LFmsmV0MWQnJlhPTyaDGkVHS4KrFUWFw1tFgyQnx6XLkM9CRYWjoT2repp86YaWKiLSalXmPQKxofSylGaXQ+rj192Mh+bx6WggAtWrxYCdKVyZPeaz7qzUnmHCfRFKSgk1iqAb0Md9a2CPM9bJZkzegv0yiOllJEzx42pgopBFYRokEAAA==) format('woff2')}
-text{font-family:JBM,ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:16px;fill:#ececec;white-space:pre}
-.b{font-weight:700}.dim{fill:#a6a6a6}.faint{fill:#6e6e6e}
-.ok{fill:#5af78e}.path{fill:#57c7ff}.key{fill:#f3c969}.dir{fill:#57c7ff;font-weight:700}
-.chrome{fill:#8a8a8a;font-size:13.5px}
-@keyframes on{from{opacity:0}to{opacity:1}}
-@keyframes hold{from,to{opacity:1}}
-@keyframes pop{0%{opacity:0}35%{opacity:1}55%{opacity:.3}75%{opacity:1}100%{opacity:1}}
-@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
-@keyframes type{from{transform:scaleX(1)}to{transform:scaleX(0)}}
-.typer{transform:scaleX(0)}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}}
-text{font-size:16px}</style>
-<rect x=".5" y=".5" width="181" height="47" rx="8" fill="#000" stroke="#4a4a4a"/><text x="23.8" y="31"><tspan class="ok">&gt;</tspan> <tspan class="b">portfólio</tspan> <tspan class="dim">↗</tspan></text><rect x="148.6" y="18" width="9.6" height="18" fill="#ececec" style="animation:blink 1.06s steps(1) 0.58s infinite"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 326 84" width="326" height="84" role="img" aria-labelledby="t d">
+<title id="t">Portfólio</title>
+<desc id="d">abrir Portfólio</desc>
+<style>text{font-family:'Helvetica Neue',Helvetica,Arial,'Liberation Sans',sans-serif}</style>
+<rect x="0" y="0" width="326" height="84" fill="#141414"/>
+<text x="24" y="52" font-size="26" font-weight="700" fill="#fbfaf6" letter-spacing="-0.5">Portfólio</text><g transform="rotate(-45 290 42)"><text x="290" y="52" font-size="28" font-weight="700" fill="#fbfaf6" text-anchor="middle">→</text></g>
 </svg>

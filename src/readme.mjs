@@ -1,63 +1,54 @@
-// README.md is generated too, from the same profile data as the panels,
-// so links, alt texts and the plain-text version never drift apart.
+// README.md is generated from the same data as the panels, so links, alt
+// texts and the plain-text version never drift apart.
 
-import { ICONS } from './data/icons.mjs';
+import { num } from './panels/stack.mjs';
 
 const attr = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
-
-const img = (src, alt, size) => `<img src="${src}" ${size} alt="${attr(alt)}" />`;
+const img = (src, alt, width) => `<img src="${src}" width="${width}" alt="${attr(alt)}" />`;
 const link = (href, inner) => `<a href="${attr(href)}">${inner}</a>`;
 
-export function readme({ whoami, stack, projects, xp, contact, text }) {
-  const logos = stack.rows.flatMap((r) => r.icons.map((k) => ICONS[k].label));
+export function readme(p, s) {
+  const tools = p.stack.flatMap((g) => g.items.map((i) => i.name));
 
+  // one raw HTML block without blank lines: images flow inline, full-width
+  // panels stack, cards pair up two by two, buttons sit three in a row
   const panels = [
-    img('assets/hero.svg', 'Terminal rodando ./psycho --train: um rosto em arte ASCII, gerado de um modelo 3D feito em código, converge época por época enquanto um log de treino espelhado sobe pelo rastro de pixels.', 'width="100%"'),
-    img('assets/whoami.svg', `whoami: ${whoami.name}, ${whoami.tagline.join(', ')}`, 'width="100%"'),
-    img('assets/stack.svg', `Stack: ${logos.join(', ')}`, 'width="100%"'),
-    ...projects.map((p) => link(p.link, img(`assets/projects/${p.slug}.svg`, `${p.title}: ${p.tagline}`, 'width="49%"'))),
-    img('assets/xp.svg', `Experiência: ${xp.jobs.map((j) => `${j.where} (${j.when})`).join(', ')}`, 'width="100%"'),
-    img('assets/contact.svg', contact.pitch, 'width="100%"'),
+    img('assets/poster.svg', `${p.first} ${p.last}, ${p.role}, ${p.facts.join(', ')}. ${p.status.join(': ')}. ${s.total} contribuições nos últimos 12 meses.`, '100%'),
+    img('assets/stack.svg', `Stack: ${tools.join(', ')}`, '100%'),
+    ...p.projects.map((pr, i) => link(pr.link, img(`assets/projects/${pr.slug}.svg`, `${num(i)} ${pr.title}: ${pr.tagline}`, '49%'))),
+    img('assets/closing.svg', `${p.job.company}, ${p.job.role}. ${p.why[0]}`, '100%'),
+    p.contact.links.map((l) => link(l.href, img(`assets/links/${l.id}.svg`, l.label, '32.6%'))).join(''),
   ];
-  const buttons = contact.links.map((l) => link(l.href, img(`assets/links/${l.id}.svg`, l.label, 'height="44"')));
 
   const plain = [
-    `**${whoami.name}** · ${whoami.tagline.join(' · ')}`,
+    `**${p.first} ${p.last}** · ${p.role} · ${p.facts.join(' · ')} · ${p.status.join(': ')}`,
     '',
-    ...text.intro.flatMap((p) => [p, '']),
-    ...whoami.focus.map((f) => `- \`~/foco/${f}/\``),
+    ...p.intro.flatMap((t) => [t, '']),
+    ...p.stack.map((g) => `**${g.name}:** ${g.items.map((i) => i.name).join(', ')}  `),
+    `**também:** ${p.more.join(', ')}`,
     '',
-    `**Stack:** ${logos.join(', ')}  `,
-    `**Também:** ${stack.more.join(', ')}`,
+    ...p.projects.map((pr, i) => `${num(i)}. [${pr.title}](${pr.link}) — ${pr.tagline} ${pr.description} \`${pr.tags.join('` `')}\``),
     '',
-    '**Projetos**',
+    `**${p.job.company}** · ${p.job.role} · ${p.job.from.replace('-', '.')} a ${p.job.to.replace('-', '.')}  `,
+    `${p.job.what}. entrei com ${p.job.before.join(', ')}; saí com ${p.job.after.join(', ')}.`,
     '',
-    ...projects.map((p) => `- [${p.title}](${p.link}) — ${p.tagline} ${p.description} \`${p.tags.join('` `')}\``),
+    ...p.why.map((l) => `> ${l}  `),
     '',
-    ...xp.jobs.map((j) => `**${j.where}** · ${j.role} · ${j.when.replace('→', 'a')}  \n${j.summary}`),
-    '',
-    ...xp.why.map((l) => `> ${l}  `),
-    '',
-    `${contact.pitch}: ${contact.links.map((l) => `[${l.label}](${l.href})`).join(' · ')}`,
+    `${p.contact.pitch.join(' ')} ${p.contact.links.map((l) => `[${l.label}](${l.href})`).join(' · ')}`,
   ];
 
-  // one raw HTML block (no blank lines): images flow inline, so full-width
-  // panels stack with a hairline gap and project cards pair up two by two
   return [
     '<!-- gerado por src/readme.mjs (npm run build): edite src/profile.mjs, não este arquivo -->',
     '<div align="center">',
     ...panels,
-    ...buttons,
     '</div>',
     '',
     '<details>',
-    '<summary><code>cat README.txt</code> — versão em texto, sem animação</summary>',
+    '<summary>versão em texto</summary>',
     '',
     ...plain,
     '',
     '</details>',
-    '',
-    '<sub>tudo acima é gerado por código: o rosto é um modelo 3D feito com SDFs e ray marching, convertido em ASCII no build. sem foto, sem gif. veja <a href="src/">src/</a>.</sub>',
     '',
   ].join('\n');
 }

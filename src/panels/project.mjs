@@ -1,91 +1,66 @@
-// Panel 4 — one card per project: a small terminal that `cat`s the README.
-// Cards are separate images so each one can link to its repository.
+// One card per project, shown two per row (each card is its own <img>
+// so it can link to its repo). The first card is printed in red.
 
-import { fontFaces, svgDoc, esc, n } from '../lib/svg.mjs';
-import { BASE_CSS, CW, windowFrame, anim, at } from '../lib/term.mjs';
-import { Session } from '../lib/script.mjs';
+import { C, n, text, rect, rule, label, svgDoc, wrap, fit } from '../lib/svg.mjs';
+import { num } from './stack.mjs';
 
-export const CARD_W = 500;
-const PAD_X = 22;
+const W = 490;
+const P = 28;
+const INNER = W - 2 * P;
+const TAG = { size: 13, bold: true, spacing: 1.4 };
 
-/** Greedy word wrap to `width` characters. */
-export function wrap(text, width) {
-  const lines = [];
-  let line = '';
-  for (const word of text.split(/\s+/)) {
-    const next = line ? `${line} ${word}` : word;
-    if (next.length > width && line) { lines.push(line); line = word; } else line = next;
+/** Text blocks of a card, wrapped. Used to give every card the same height. */
+export function layout(p) {
+  return {
+    titleSize: fit(p.title, INNER, 30, { bold: true, spacing: -0.5 }),
+    tagline: wrap(p.tagline, INNER, 18),
+    description: wrap(p.description, INNER, 15),
+    tags: wrap(p.tags.map((t) => t.toUpperCase()).join(' / '), INNER, TAG.size, TAG),
+  };
+}
+
+export const cardHeight = (l) => 150 + l.tagline.length * 24 + 12 + l.description.length * 21 + 34 + l.tags.length * 20 + P;
+
+export function projectCard(p, i, height) {
+  const l = layout(p);
+  const lead = i === 0;
+  const fg = lead ? C.white : C.ink;
+  const soft = lead ? C.white : C.gray;
+  const accent = lead ? C.white : C.red;
+  const out = [];
+
+  out.push(
+    text(P - 3, 80, num(i), { size: 64, bold: true, spacing: -3, fill: accent }),
+    `<g transform="rotate(-45 ${n(W - P - 14)} 58)">${text(W - P - 14, 68, '→', { size: 30, bold: true, anchor: 'middle', fill: fg })}</g>`,
+    rule(P, 102, INNER, 1.5, fg),
+    text(P, 144, p.title, { size: l.titleSize, bold: true, spacing: -0.5, fill: fg }),
+  );
+
+  let y = 174;
+  for (const line of l.tagline) {
+    out.push(text(P, y, line, { size: 18, fill: fg }));
+    y += 24;
   }
-  if (line) lines.push(line);
-  return lines;
-}
+  y += 12;
+  for (const line of l.description) {
+    out.push(text(P, y, line, { size: 15, fill: soft }));
+    y += 21;
+  }
 
-const COLS = Math.floor((CARD_W - 2 * PAD_X) / CW);
+  // tags sit on the bottom edge so they line up across the row
+  let ty = height - P - (l.tags.length - 1) * 20;
+  out.push(rule(P, ty - 26, INNER, 1, lead ? C.white : C.dot));
+  for (const line of l.tags) {
+    out.push(label(P, ty, line, { fill: accent }));
+    ty += 20;
+  }
 
-// github.com/user/repo, cut with … if it doesn't fit the card
-const shortLink = (url) => {
-  const text = url.replace(/^https:\/\//, '');
-  return text.length > COLS - 3 ? `${text.slice(0, COLS - 4)}…` : text;
-};
-
-const CHIP = 13.5; // chip font size
-const chipWidth = (tag) => tag.length * CHIP * 0.6 + 12;
-
-/** Lay chips out left to right, wrapping; returns positions and row count. */
-function layoutChips(tags) {
-  let x = PAD_X;
-  let row = 0;
-  const placed = tags.map((tag) => {
-    const w = chipWidth(tag);
-    if (x + w > CARD_W - PAD_X) { x = PAD_X; row++; }
-    const chip = { tag, x, row, w };
-    x += w + 7;
-    return chip;
-  });
-  return { placed, rows: row + 1 };
-}
-
-/** Body lines and chip rows a card needs, so all cards can share one height. */
-export const cardMetrics = (p) => ({
-  lines: wrap(p.description, COLS).length + wrap(p.tagline, COLS).length - 1,
-  chipRows: layoutChips(p.tags).rows,
-});
-
-export function projectCard(p, { index = 0, lines, chipRows }) {
-  const s = new Session({ width: CARD_W, x: PAD_X, t: 0.5 + index * 0.35, cps: 40 });
-  s.cmd('cat README.md', { pause: 0.15 });
-  s.out(`<tspan class="b key">${esc(p.title)}</tspan>`, { gap: 0.08 });
-  for (const line of wrap(p.tagline, COLS)) s.out(esc(line), { cls: 'dim', gap: 0.08 });
-  s.space(0.35);
-  const body = wrap(p.description, COLS);
-  lines -= wrap(p.tagline, COLS).length - 1; // a two-line tagline eats one body line
-  for (let i = 0; i < lines; i++) s.out(esc(body[i] ?? ''), { gap: 0.05 });
-  s.space(0.3);
-
-  // tags as inverse-video chips, wrapped onto as many rows as needed
-  s.block((y, t) => {
-    const { placed, rows } = layoutChips(p.tags);
-    const svg = placed.map(({ tag, x, row, w }, i) => {
-      const yy = y - 15 + row * 27;
-      return `<g${anim(`pop .3s ${at(t + i * 0.06)} backwards`)}>` +
-        `<rect x="${n(x)}" y="${n(yy)}" width="${n(w)}" height="21" rx="2" fill="#e6e6e6"/>` +
-        `<text x="${n(x + 6)}" y="${n(yy + 15.5)}" class="chip">${esc(tag)}</text></g>`;
-    }).join('');
-    return { svg, height: Math.max(rows, chipRows ?? rows) * 27 + 6, duration: p.tags.length * 0.06 };
-  });
-  s.out(`<tspan class="faint">└─ </tspan><tspan class="path">${esc(shortLink(p.link))}</tspan>`, { gap: 0.1 });
-  const end = s.end({ bottom: 14 });
-
-  const H = Math.ceil(end.height);
-  const style = fontFaces({ bold: true }) + BASE_CSS + `
-.chip{font-size:${CHIP}px;fill:#000;font-weight:700}
-${end.css}`;
   return svgDoc({
-    width: CARD_W,
-    height: H,
-    title: p.title,
-    desc: `${p.title} — ${p.tagline} ${p.description} (${p.tags.join(', ')})`,
-    style,
-    body: windowFrame({ width: CARD_W, height: H, title: `~/projects/${p.slug}` }) + end.svg,
+    width: W,
+    height,
+    bg: lead ? C.red : C.paper,
+    title: `${num(i)} ${p.title}`,
+    desc: `${p.tagline} ${p.description} Stack: ${p.tags.join(', ')}.`,
+    body: out.join('\n'),
   });
 }

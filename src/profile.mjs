@@ -1,56 +1,56 @@
-// Everything the panels say lives here. Edit this file, run `npm run build`
-// (or just push: the workflow rebuilds the SVGs) and the profile updates.
+// Everything the profile says lives here. Edit, run `npm run build`
+// (or just push: the workflow rebuilds) and the README follows.
 
 export const profile = {
-  name: 'Edu Ferreira',
-  handle: 'iHadesj',
+  login: 'iHadesj',
+  first: 'Edu',
+  last: 'Ferreira',
+  role: 'full stack dev',
+  facts: ['20 anos', 'grajaú, zona sul de sp'],
+  status: ['procurando vaga', 'full stack ou front-end'],
+  intro: [
+    'Dev full stack, 20 anos, do Grajaú, zona sul de SP. Passei 20 meses na VTT trabalhando com digital signage e retail media pro varejo, e hoje tô procurando a próxima vaga como full stack ou front-end.',
+    'Gosto de fazer o app funcionar primeiro e depois foco na estética: regra de negócio no lugar certo, sem lotar de estados, rápido e fácil de usar. Meu dia a dia é React, Next.js e TypeScript. No back, minha base é Java, JPA e PostgreSQL.',
+  ],
 
-  // prose for the plain-text version at the end of the README
-  text: {
-    intro: [
-      'Dev full stack, 20 anos, do Grajaú, zona sul de SP. Passei 20 meses na VTT trabalhando com digital signage e retail media pro varejo, e hoje tô procurando a próxima vaga como full stack ou front-end.',
-      'Gosto de fazer o app funcionar primeiro e depois foco na estética: regra de negócio no lugar certo, sem lotar de estados, rápido e fácil de usar. Meu dia a dia é React, Next.js e TypeScript. No back, minha base é Java, JPA e PostgreSQL.',
-    ],
-  },
-
-  hero: {
-    title: 'hades@grajau: ~/psycho — 160×72',
-    command: './psycho --train ~/edu --epochs 5',
-    result: ['training complete · loss 2.35e-09 ', '→ model: edu-ferreira/full-stack@latest'],
-    // the session name sits quietly in the status bar
-    session: 'psycho cibernetic',
-    status: 'grajaú · zona sul · sp',
-  },
-
-  whoami: {
-    name: 'Edu Ferreira',
-    tagline: ['full stack dev', '20 anos', 'grajaú, zona sul de sp'],
-    about: [
-      ['status', 'procurando a próxima vaga — full stack ou front-end'],
-      ['xp', '20 meses na VTT · digital signage e retail media pro varejo'],
-      ['front', 'react · next.js · typescript'],
-      ['back', 'java · jpa · postgresql'],
-      ['estudo', 'análise e desenvolvimento de sistemas @ estácio'],
-      ['regra', 'primeiro o app funciona, depois vem a estética'],
-    ],
-    focus: [
-      'interface-responsiva-e-acessivel',
-      'regra-de-negocio+estado-global',
-      'pwa-offline-first+testes+performance',
-      'animacao-e-3d-so-quando-ajudam',
-    ],
-  },
-
-  stack: {
-    rows: [
-      { label: '# front-end', icons: ['react', 'nextdotjs', 'typescript', 'javascript', 'tailwindcss', 'threedotjs'] },
-      { label: '# back-end · dados · qualidade', icons: ['java', 'postgresql', 'mysql', 'vitest', 'zod', 'git'] },
-    ],
-    more: [
-      'html', 'css', 'motion', 'indexeddb', 'tanstack query', 'react router', 'zustand', 'dexie', 'jpa', 'tomcat',
-      'playwright', 'radix ui', 'resend', 'react email', 'velite', 'fuse.js', 'workbox', 'eslint', 'prettier',
-    ],
-  },
+  // `match`: words looked up in each project's tags/description, so the
+  // stack table can point at the projects where each tool shows up.
+  stack: [
+    {
+      name: 'front-end',
+      items: [
+        { name: 'React', match: ['react'] },
+        { name: 'Next.js', match: ['next.js'] },
+        { name: 'TypeScript', match: ['typescript'] },
+        { name: 'Tailwind CSS', match: ['tailwind'] },
+        { name: 'Three.js', match: ['three.js', '3d'] },
+      ],
+    },
+    {
+      name: 'back-end · dados',
+      items: [
+        { name: 'Java', match: ['java'] },
+        { name: 'JPA / Hibernate', match: ['jpa'] },
+        { name: 'PostgreSQL', match: ['postgresql'] },
+        { name: 'MySQL', match: ['mysql'] },
+        { name: 'Tomcat', note: 'vtt' },
+      ],
+    },
+    {
+      name: 'estado · qualidade',
+      items: [
+        { name: 'Zustand', match: ['zustand'] },
+        { name: 'IndexedDB', match: ['dexie', 'offline'] },
+        { name: 'Vitest', match: ['vitest', 'testes'] },
+        { name: 'Zod', match: ['zod'] },
+        { name: 'Git', note: 'sempre' },
+      ],
+    },
+  ],
+  more: [
+    'html', 'css', 'motion', 'tanstack query', 'react router', 'playwright', 'radix ui', 'resend',
+    'react email', 'velite', 'fuse.js', 'workbox', 'web audio api', 'eslint', 'prettier',
+  ],
 
   projects: [
     {
@@ -106,36 +106,31 @@ export const profile = {
     },
   ],
 
-  xp: {
-    jobs: [
-      {
-        when: '2025.02 → 2026.10',
-        where: 'VTT · Vector Two Technologies',
-        role: 'desenvolvedor web',
-        summary:
-          'Projetos de digital signage e retail media pro varejo. Entrei sabendo HTML, CSS, JavaScript, Java e MySQL e saí com React, Tomcat e mais noção de arquitetura de sistema.',
-        lines: [
-          ['digital signage e retail media pro varejo'],
-          ['entrei com  ', 'html · css · javascript · java · mysql'],
-          ['saí com     ', '+ react · tomcat · mais noção de arquitetura de sistema'],
-        ],
-      },
-    ],
-    why: [
-      'code got cheap. reading it never did.',
-      'the crowd hands its thinking to a prompt and ships whatever comes back.',
-      'i stay in the editor, line by line, learning how things are meant to stand.',
-      'to me code was always a kind of art, and art was never meant to be outsourced.',
-      'every repo here is my taste in syntax. the judgment is mine too.',
-    ],
+  job: {
+    short: 'VTT',
+    company: 'Vector Two Technologies',
+    role: 'desenvolvedor web',
+    from: '2025-02',
+    to: '2026-10',
+    what: 'digital signage e retail media pro varejo',
+    before: ['html', 'css', 'javascript', 'java', 'mysql'],
+    after: ['react', 'tomcat', 'arquitetura de sistema'],
   },
 
+  why: [
+    'code got cheap. reading it never did.',
+    'the crowd hands its thinking to a prompt and ships whatever comes back.',
+    'i stay in the editor, line by line, learning how things are meant to stand.',
+    'to me code was always a kind of art, and art was never meant to be outsourced.',
+    'every repo here is my taste in syntax. the judgment is mine too.',
+  ],
+
   contact: {
-    pitch: 'curtiu algum projeto ou quer trocar ideia sobre vaga? é só chamar',
+    pitch: ['curtiu algum projeto', 'ou quer falar de vaga?'],
     links: [
-      { id: 'linkedin', label: 'linkedin', href: 'https://www.linkedin.com/in/eduardo-alexandre-java/' },
-      { id: 'portfolio', label: 'portfólio', href: 'https://edu-ferreira.vercel.app' },
-      { id: 'repos', label: 'repositórios', href: 'https://github.com/iHadesj?tab=repositories' },
+      { id: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/eduardo-alexandre-java/' },
+      { id: 'portfolio', label: 'Portfólio', href: 'https://edu-ferreira.vercel.app' },
+      { id: 'repos', label: 'Repositórios', href: 'https://github.com/iHadesj?tab=repositories' },
     ],
   },
 };
