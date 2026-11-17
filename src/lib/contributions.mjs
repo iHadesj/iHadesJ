@@ -69,5 +69,9 @@ export function stats(days) {
     run = d.count > 0 ? run + 1 : 0;
     streak = Math.max(streak, run);
   }
-  return { total, active, best, streak };
+  const week = days.slice(-7).reduce((s, d) => s + d.count, 0);
+  const recent = days.slice(-14).filter((d) => d.count > 0);
+  const lastActive = [...days].reverse().find((d) => d.count > 0);
+  const idle = lastActive ? days.length - 1 - days.indexOf(lastActive) : days.length;
+  return { total, active, best, streak, week, recent, idle };
 }

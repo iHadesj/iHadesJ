@@ -1,7 +1,7 @@
 <!-- gerado por src/readme.mjs (npm run build): edite src/profile.mjs, não este arquivo -->
 <div align="center">
-<img src="assets/poster.svg" width="100%" alt="Edu Ferreira, full stack dev, 20 anos, grajaú, zona sul de sp. procurando vaga: full stack ou front-end. 235 contribuições nos últimos 12 meses." />
-<img src="assets/stack.svg" width="100%" alt="Stack: React, Next.js, TypeScript, Tailwind CSS, Three.js, Java, JPA / Hibernate, PostgreSQL, MySQL, Tomcat, Zustand, IndexedDB, Vitest, Zod, Git" />
+<img src="assets/pond.svg" width="100%" alt="Edu Ferreira, full stack dev, 20 anos, grajaú, zona sul de sp. procurando vaga: full stack ou front-end. Lago em ASCII com carpas koi alimentadas pelos commits: 236 contribuições nos últimos 12 meses." />
+<img src="assets/stack.svg" width="100%" alt="Stack: React, Next.js, TypeScript, JavaScript, Tailwind CSS, Three.js, Java, PostgreSQL, MySQL, Vitest, Zod, Git" />
 <a href="https://github.com/iHadesj/Levva-loja-e-sorte"><img src="assets/projects/levva-loja-e-sorte.svg" width="49%" alt="01 Levva — Loja &amp; Sorte: E-commerce gamificado, meu laboratório de produto." /></a>
 <a href="https://github.com/iHadesj/EduardoFerreira"><img src="assets/projects/eduardo-ferreira.svg" width="49%" alt="02 Portfólio Pessoal: Minha experiência transformada em site." /></a>
 <a href="https://github.com/iHadesj/change_in_the_house_of_flies"><img src="assets/projects/change_in_the_house_of_flies.svg" width="49%" alt="03 change_in_the_house_of_flies: Música transformada em UI interativa." /></a>
@@ -21,10 +21,9 @@ Dev full stack, 20 anos, do Grajaú, zona sul de SP. Passei 20 meses na VTT trab
 
 Gosto de fazer o app funcionar primeiro e depois foco na estética: regra de negócio no lugar certo, sem lotar de estados, rápido e fácil de usar. Meu dia a dia é React, Next.js e TypeScript. No back, minha base é Java, JPA e PostgreSQL.
 
-**front-end:** React, Next.js, TypeScript, Tailwind CSS, Three.js  
-**back-end · dados:** Java, JPA / Hibernate, PostgreSQL, MySQL, Tomcat  
-**estado · qualidade:** Zustand, IndexedDB, Vitest, Zod, Git  
-**também:** html, css, motion, tanstack query, react router, playwright, radix ui, resend, react email, velite, fuse.js, workbox, web audio api, eslint, prettier
+**front-end:** React, Next.js, TypeScript, JavaScript, Tailwind CSS, Three.js  
+**back-end · dados · qualidade:** Java, PostgreSQL, MySQL, Vitest, Zod, Git  
+**também:** jpa / hibernate, tomcat, zustand, dexie / indexeddb, tanstack query, react router, motion, playwright, radix ui, web audio api, workbox, fuse.js, resend, velite, eslint, prettier
 
 01. [Levva — Loja & Sorte](https://github.com/iHadesj/Levva-loja-e-sorte) — E-commerce gamificado, meu laboratório de produto. PWA com catálogo de 400 produtos, busca fuzzy, carrinho/checkout com dinheiro em centavos, cassino/gacha com RTP auditável, 29 testes, offline-first. `react` `typescript` `zustand` `dexie` `vitest` `pwa`
 02. [Portfólio Pessoal](https://github.com/iHadesj/EduardoFerreira) — Minha experiência transformada em site. Site spec-driven: 3D lazy-loaded (230 KB gz), animações com Motion, testes unitários + e2e, validação Zod, conteúdo tipado. `next.js` `react` `typescript` `tailwind v4` `three.js`

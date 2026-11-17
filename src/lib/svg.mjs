@@ -5,13 +5,17 @@
 
 export const FONT = `'Helvetica Neue',Helvetica,Arial,'Liberation Sans',sans-serif`;
 
+export const MONO = `ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace`;
+
+// night pond: deep water, paper-white type, koi red
 export const C = {
-  paper: '#efede6',
-  ink: '#141414',
-  red: '#cf2f18',
-  gray: '#66635b',
-  dot: '#cfcabe',
-  white: '#fbfaf6',
+  bg: '#0b1215',
+  card: '#101a1e',
+  line: '#22323a',
+  fg: '#eee8dc',
+  gray: '#8e979b',
+  red: '#ec5233',
+  white: '#fbf7ef',
 };
 
 export const esc = (s) =>
@@ -98,11 +102,48 @@ export function text(x, y, content, { size = 16, bold = false, fill, anchor, spa
 export const rect = (x, y, w, h, fill, extra = {}) => `<rect${attrs({ x, y, width: w, height: h, fill, ...extra })}/>`;
 
 /** Horizontal rule. */
-export const rule = (x, y, w, weight = 2, fill = C.ink) => rect(x, y, w, weight, fill);
+export const rule = (x, y, w, weight = 2, fill = C.fg) => rect(x, y, w, weight, fill);
 
 /** Small uppercase label, the "caption" voice of the whole profile. */
 export const label = (x, y, content, opts = {}) =>
-  text(x, y, String(content).toUpperCase(), { size: 13, bold: true, spacing: 1.4, fill: C.ink, ...opts });
+  text(x, y, String(content).toUpperCase(), { size: 13, bold: true, spacing: 1.4, fill: C.fg, ...opts });
+
+/**
+ * Character-grid text: `cells` maps "row,col" → [char, color]. Emits one
+ * <text> per run of same-colored cells on a row (short gaps are filled with
+ * spaces), each pinned with textLength so any monospace font lines up.
+ */
+export function gridText(cells, { x0 = 0, y0 = 0, cw, lh, cls = (c) => c, gap = 6 }) {
+  const rows = new Map();
+  for (const [key, [ch, color]] of cells) {
+    const [r, c] = key.split(',').map(Number);
+    const k = `${r}|${color}`;
+    if (!rows.has(k)) rows.set(k, []);
+    rows.get(k).push([c, ch]);
+  }
+  const out = [];
+  for (const [k, items] of rows) {
+    const [r, color] = k.split('|');
+    items.sort((a, b) => a[0] - b[0]);
+    let run = [items[0]];
+    const flush = () => {
+      const start = run[0][0];
+      const line = Array(run.at(-1)[0] - start + 1).fill(' ');
+      for (const [c, ch] of run) line[c - start] = ch;
+      const len = line.length > 1 ? ` textLength="${n(line.length * cw)}"` : '';
+      out.push(`<text x="${n(x0 + start * cw)}" y="${n(y0 + (Number(r) + 0.8) * lh)}" class="${cls(color)}"${len}>${esc(line.join(''))}</text>`);
+    };
+    for (const it of items.slice(1)) {
+      if (it[0] - run.at(-1)[0] <= gap) run.push(it);
+      else {
+        flush();
+        run = [it];
+      }
+    }
+    flush();
+  }
+  return out.join('');
+}
 
 /** Section head: number in red, name, full-width rule underneath. */
 export function sectionHead(x, y, w, num, name, aside) {
@@ -114,7 +155,7 @@ export function sectionHead(x, y, w, num, name, aside) {
   ].filter(Boolean).join('');
 }
 
-export function svgDoc({ width, height, title, desc, style = '', body, bg = C.paper }) {
+export function svgDoc({ width, height, title, desc, style = '', body, bg = C.bg }) {
   return [
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-labelledby="t d">`,
     `<title id="t">${esc(title)}</title>`,

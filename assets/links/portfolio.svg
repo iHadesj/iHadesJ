@@ -2,6 +2,6 @@
 <title id="t">Portfólio</title>
 <desc id="d">abrir Portfólio</desc>
 <style>text{font-family:'Helvetica Neue',Helvetica,Arial,'Liberation Sans',sans-serif}</style>
-<rect x="0" y="0" width="326" height="84" fill="#141414"/>
-<text x="24" y="52" font-size="26" font-weight="700" fill="#fbfaf6" letter-spacing="-0.5">Portfólio</text><g transform="rotate(-45 290 42)"><text x="290" y="52" font-size="28" font-weight="700" fill="#fbfaf6" text-anchor="middle">→</text></g>
+<rect x="0" y="0" width="326" height="84" fill="#101a1e"/>
+<text x="24" y="52" font-size="26" font-weight="700" fill="#fbf7ef" letter-spacing="-0.5">Portfólio</text><g transform="rotate(-45 290 42)"><text x="290" y="52" font-size="28" font-weight="700" fill="#fbf7ef" text-anchor="middle">→</text></g>
 </svg>

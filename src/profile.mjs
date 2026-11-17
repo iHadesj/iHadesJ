@@ -19,37 +19,29 @@ export const profile = {
     {
       name: 'front-end',
       items: [
-        { name: 'React', match: ['react'] },
-        { name: 'Next.js', match: ['next.js'] },
-        { name: 'TypeScript', match: ['typescript'] },
-        { name: 'Tailwind CSS', match: ['tailwind'] },
-        { name: 'Three.js', match: ['three.js', '3d'] },
+        { icon: 'react', match: ['react'] },
+        { icon: 'nextdotjs', match: ['next.js'] },
+        { icon: 'typescript', match: ['typescript'] },
+        { icon: 'javascript', match: ['javascript'] },
+        { icon: 'tailwindcss', match: ['tailwind v4'] },
+        { icon: 'threedotjs', match: ['three.js'] },
       ],
     },
     {
-      name: 'back-end · dados',
+      name: 'back-end · dados · qualidade',
       items: [
-        { name: 'Java', match: ['java'] },
-        { name: 'JPA / Hibernate', match: ['jpa'] },
-        { name: 'PostgreSQL', match: ['postgresql'] },
-        { name: 'MySQL', match: ['mysql'] },
-        { name: 'Tomcat', note: 'vtt' },
-      ],
-    },
-    {
-      name: 'estado · qualidade',
-      items: [
-        { name: 'Zustand', match: ['zustand'] },
-        { name: 'IndexedDB', match: ['dexie', 'offline'] },
-        { name: 'Vitest', match: ['vitest', 'testes'] },
-        { name: 'Zod', match: ['zod'] },
-        { name: 'Git', note: 'sempre' },
+        { icon: 'java', match: ['java'] },
+        { icon: 'postgresql', match: ['postgresql'] },
+        { icon: 'mysql', match: ['mysql'] },
+        { icon: 'vitest', match: ['vitest'] },
+        { icon: 'zod', match: ['zod'] },
+        { icon: 'git', note: 'sempre' },
       ],
     },
   ],
   more: [
-    'html', 'css', 'motion', 'tanstack query', 'react router', 'playwright', 'radix ui', 'resend',
-    'react email', 'velite', 'fuse.js', 'workbox', 'web audio api', 'eslint', 'prettier',
+    'jpa / hibernate', 'tomcat', 'zustand', 'dexie / indexeddb', 'tanstack query', 'react router', 'motion',
+    'playwright', 'radix ui', 'web audio api', 'workbox', 'fuse.js', 'resend', 'velite', 'eslint', 'prettier',
   ],
 
   projects: [
