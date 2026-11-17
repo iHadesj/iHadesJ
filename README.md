@@ -1,6 +1,8 @@
 <!-- gerado por src/readme.mjs (npm run build): edite src/profile.mjs, não este arquivo -->
 <div align="center">
-<img src="assets/pond.svg" width="100%" alt="Edu Ferreira, full stack dev, 20 anos, grajaú, zona sul de sp. procurando vaga: full stack ou front-end. Lago em ASCII com carpas koi alimentadas pelos commits: 236 contribuições nos últimos 12 meses." />
+<img src="assets/hero.svg" width="100%" alt="Edu Ferreira, full stack dev, 20 anos, grajaú, zona sul de sp" />
+<a href="https://github.com/yalongwastaken/git-koi"><img src="koi/koi.gif" width="256" alt="Uma carpa koi em pixel art, desenhada toda noite a partir da minha atividade no GitHub" /></a>
+<img src="assets/contrib.svg" width="100%" alt="238 contribuições nos últimos 12 meses" />
 <img src="assets/stack.svg" width="100%" alt="Stack: React, Next.js, TypeScript, JavaScript, Tailwind CSS, Three.js, Java, PostgreSQL, MySQL, Vitest, Zod, Git" />
 <a href="https://github.com/iHadesj/Levva-loja-e-sorte"><img src="assets/projects/levva-loja-e-sorte.svg" width="49%" alt="01 Levva — Loja &amp; Sorte: E-commerce gamificado, meu laboratório de produto." /></a>
 <a href="https://github.com/iHadesj/EduardoFerreira"><img src="assets/projects/eduardo-ferreira.svg" width="49%" alt="02 Portfólio Pessoal: Minha experiência transformada em site." /></a>
@@ -15,9 +17,9 @@
 <details>
 <summary>versão em texto</summary>
 
-**Edu Ferreira** · full stack dev · 20 anos · grajaú, zona sul de sp · procurando vaga: full stack ou front-end
+**Edu Ferreira** · full stack dev · 20 anos · grajaú, zona sul de sp
 
-Dev full stack, 20 anos, do Grajaú, zona sul de SP. Passei 20 meses na VTT trabalhando com digital signage e retail media pro varejo, e hoje tô procurando a próxima vaga como full stack ou front-end.
+Dev full stack, 20 anos, do Grajaú, zona sul de SP. Passei 20 meses na VTT trabalhando com digital signage e retail media pro varejo.
 
 Gosto de fazer o app funcionar primeiro e depois foco na estética: regra de negócio no lugar certo, sem lotar de estados, rápido e fácil de usar. Meu dia a dia é React, Next.js e TypeScript. No back, minha base é Java, JPA e PostgreSQL.
 
@@ -41,6 +43,6 @@ digital signage e retail media pro varejo. entrei com html, css, javascript, jav
 > to me code was always a kind of art, and art was never meant to be outsourced.  
 > every repo here is my taste in syntax. the judgment is mine too.  
 
-curtiu algum projeto ou quer falar de vaga? [LinkedIn](https://www.linkedin.com/in/eduardo-alexandre-java/) · [Portfólio](https://edu-ferreira.vercel.app) · [Repositórios](https://github.com/iHadesj?tab=repositories)
+[LinkedIn](https://www.linkedin.com/in/eduardo-alexandre-java/) · [Portfólio](https://edu-ferreira.vercel.app) · [Repositórios](https://github.com/iHadesj?tab=repositories)
 
 </details>

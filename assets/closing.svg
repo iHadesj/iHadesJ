@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 918" width="1000" height="918" role="img" aria-labelledby="t d">
-<title id="t">Experiência, por quê e contato</title>
-<desc id="d">Vector Two Technologies (VTT), desenvolvedor web, 2025.02 a 2026.10: digital signage e retail media pro varejo. Entrei com html, css, javascript, java, mysql; saí com react, tomcat, arquitetura de sistema. code got cheap. reading it never did. the crowd hands its thinking to a prompt and ships whatever comes back. i stay in the editor, line by line, learning how things are meant to stand. to me code was always a kind of art, and art was never meant to be outsourced. every repo here is my taste in syntax. the judgment is mine too. curtiu algum projeto ou quer falar de vaga?</desc>
-<style>text{font-family:'Helvetica Neue',Helvetica,Arial,'Liberation Sans',sans-serif}.hint{animation:nudge 1.8s ease-in-out infinite}@keyframes nudge{50%{transform:translateX(6px)}}@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style>
-<rect x="0" y="0" width="1000" height="918" fill="#0b1215"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 730" width="1000" height="730" role="img" aria-labelledby="t d">
+<title id="t">Experiência e por quê</title>
+<desc id="d">Vector Two Technologies (VTT), desenvolvedor web, 2025.02 a 2026.10: digital signage e retail media pro varejo. Entrei com html, css, javascript, java, mysql; saí com react, tomcat, arquitetura de sistema. code got cheap. reading it never did. the crowd hands its thinking to a prompt and ships whatever comes back. i stay in the editor, line by line, learning how things are meant to stand. to me code was always a kind of art, and art was never meant to be outsourced. every repo here is my taste in syntax. the judgment is mine too.</desc>
+<style>text{font-family:'Helvetica Neue',Helvetica,Arial,'Liberation Sans',sans-serif}.in{animation:.75s cubic-bezier(.2,.75,.25,1) both}.up{animation-name:up}@keyframes up{from{opacity:0;transform:translateY(18px)}}.pop{transform-box:fill-box;transform-origin:center;animation-name:pop;animation-duration:.45s}@keyframes pop{from{opacity:0;transform:scale(.2)}}.grow{transform-box:fill-box;transform-origin:left;animation-name:grow;animation-duration:1.1s}@keyframes grow{from{transform:scaleX(0)}}@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style>
+<rect x="0" y="0" width="1000" height="730" fill="#0b1215" rx="12"/>
 <rect x="40" y="28" width="920" height="3" fill="#eee8dc"/><text x="40" y="52" font-size="13" font-weight="700" fill="#ec5233" letter-spacing="1.4">04</text><text x="74" y="52" font-size="13" font-weight="700" fill="#eee8dc" letter-spacing="1.4">EXPERIÊNCIA</text><text x="960" y="52" font-size="13" font-weight="700" fill="#8e979b" text-anchor="end" letter-spacing="1.4">2025.02 → 2026.10</text>
 <text x="34" y="196" font-size="130" font-weight="700" fill="#eee8dc" letter-spacing="-6">VTT</text>
 <text x="307.57" y="116" font-size="28" font-weight="700" fill="#eee8dc" letter-spacing="-0.5">Vector Two Technologies</text>
@@ -36,20 +36,17 @@
 <rect x="882.83" y="244" width="1" height="6" fill="#8e979b"/>
 <rect x="921.17" y="244" width="1" height="6" fill="#8e979b"/>
 <rect x="959.5" y="236" width="1" height="14" fill="#eee8dc"/>
-<rect x="78.33" y="258" width="805" height="16" fill="#ec5233"/>
+<g class="in grow" style="animation-delay:0.4s"><rect x="78.33" y="258" width="805" height="16" fill="#ec5233"/></g>
 <text x="883.33" y="298" font-size="13" font-weight="700" fill="#ec5233" text-anchor="end" letter-spacing="1.4">20 MESES</text>
 <text x="40" y="338" font-size="13" font-weight="700" fill="#8e979b" letter-spacing="1.4">ENTREI COM</text>
 <text x="40" y="366" font-size="19" fill="#eee8dc">html · css · javascript · java · mysql</text>
 <text x="500" y="338" font-size="13" font-weight="700" fill="#8e979b" letter-spacing="1.4">SAÍ COM</text>
 <text x="500" y="366" font-size="19" font-weight="700" fill="#ec5233">+ react · tomcat · arquitetura de sistema</text>
 <rect x="40" y="410" width="920" height="3" fill="#eee8dc"/><text x="40" y="434" font-size="13" font-weight="700" fill="#ec5233" letter-spacing="1.4">05</text><text x="74" y="434" font-size="13" font-weight="700" fill="#eee8dc" letter-spacing="1.4">POR QUÊ</text>
-<text x="38" y="494" font-size="40" font-weight="700" fill="#eee8dc" letter-spacing="-1.5">code got cheap. reading it never did.</text>
-<text x="40" y="546" font-size="20" fill="#eee8dc">the crowd hands its thinking to a prompt and ships whatever comes back.</text>
-<text x="40" y="576" font-size="20" fill="#eee8dc">i stay in the editor, line by line, learning how things are meant to stand.</text>
-<text x="40" y="606" font-size="20" fill="#eee8dc">to me code was always a kind of art, and art was never meant to be outsourced.</text>
-<text x="40" y="636" font-size="20" fill="#eee8dc">every repo here is my taste in syntax. the judgment is mine too.</text>
-<rect x="40" y="686" width="920" height="3" fill="#eee8dc"/><text x="40" y="710" font-size="13" font-weight="700" fill="#ec5233" letter-spacing="1.4">06</text><text x="74" y="710" font-size="13" font-weight="700" fill="#eee8dc" letter-spacing="1.4">CONTATO</text>
-<text x="37" y="766" font-size="54" font-weight="700" fill="#eee8dc" letter-spacing="-2.5">curtiu algum projeto</text>
-<text x="37" y="824" font-size="54" font-weight="700" fill="#eee8dc" letter-spacing="-2.5">ou quer falar de vaga?</text>
-<text x="40" y="886" font-size="19" fill="#ec5233" class="hint">→ escolhe um aí embaixo</text>
+<g class="in up" style="animation-delay:0.3s"><text x="38" y="494" font-size="40" font-weight="700" fill="#eee8dc" letter-spacing="-1.5">code got cheap. reading it never did.</text></g>
+<g class="in up" style="animation-delay:0.5s"><text x="40" y="546" font-size="20" fill="#eee8dc">the crowd hands its thinking to a prompt and ships whatever comes back.</text></g>
+<g class="in up" style="animation-delay:0.62s"><text x="40" y="576" font-size="20" fill="#eee8dc">i stay in the editor, line by line, learning how things are meant to stand.</text></g>
+<g class="in up" style="animation-delay:0.74s"><text x="40" y="606" font-size="20" fill="#eee8dc">to me code was always a kind of art, and art was never meant to be outsourced.</text></g>
+<g class="in up" style="animation-delay:0.86s"><text x="40" y="636" font-size="20" fill="#eee8dc">every repo here is my taste in syntax. the judgment is mine too.</text></g>
+<rect x="40" y="686" width="920" height="3" fill="#eee8dc"/><text x="40" y="710" font-size="13" font-weight="700" fill="#ec5233" letter-spacing="1.4">06</text><text x="74" y="710" font-size="13" font-weight="700" fill="#eee8dc" letter-spacing="1.4">LINKS</text>
 </svg>

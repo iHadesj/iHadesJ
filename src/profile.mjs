@@ -7,9 +7,8 @@ export const profile = {
   last: 'Ferreira',
   role: 'full stack dev',
   facts: ['20 anos', 'grajaú, zona sul de sp'],
-  status: ['procurando vaga', 'full stack ou front-end'],
   intro: [
-    'Dev full stack, 20 anos, do Grajaú, zona sul de SP. Passei 20 meses na VTT trabalhando com digital signage e retail media pro varejo, e hoje tô procurando a próxima vaga como full stack ou front-end.',
+    'Dev full stack, 20 anos, do Grajaú, zona sul de SP. Passei 20 meses na VTT trabalhando com digital signage e retail media pro varejo.',
     'Gosto de fazer o app funcionar primeiro e depois foco na estética: regra de negócio no lugar certo, sem lotar de estados, rápido e fácil de usar. Meu dia a dia é React, Next.js e TypeScript. No back, minha base é Java, JPA e PostgreSQL.',
   ],
 
@@ -118,7 +117,6 @@ export const profile = {
   ],
 
   contact: {
-    pitch: ['curtiu algum projeto', 'ou quer falar de vaga?'],
     links: [
       { id: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/eduardo-alexandre-java/' },
       { id: 'portfolio', label: 'Portfólio', href: 'https://edu-ferreira.vercel.app' },

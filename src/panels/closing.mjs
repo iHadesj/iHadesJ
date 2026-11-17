@@ -1,7 +1,7 @@
 // The back of the poster: work experience on a month scale, the "why"
-// paragraph, the contact pitch, and the link buttons under it.
+// paragraph, and the heading for the link buttons under it.
 
-import { C, n, text, rect, rule, label, sectionHead, svgDoc, measure } from '../lib/svg.mjs';
+import { C, n, text, rect, rule, label, sectionHead, svgDoc, measure, enter } from '../lib/svg.mjs';
 
 const W = 1000;
 const M = 40;
@@ -10,7 +10,7 @@ const INNER = W - 2 * M;
 const months = (ym) => Number(ym.slice(0, 4)) * 12 + Number(ym.slice(5, 7)) - 1;
 const dot = (ym) => ym.replace('-', '.');
 
-export function closing({ job, why, contact }) {
+export function closing({ job, why }) {
   const out = [];
   const span = months(job.to) - months(job.from);
 
@@ -39,7 +39,7 @@ export function closing({ job, why, contact }) {
   const a = sx(months(job.from) - y0 * 12);
   const b = sx(months(job.to) - y0 * 12 + 1);
   out.push(
-    rect(a, ty + 8, b - a, 16, C.red),
+    `<g${enter(0.4, 'grow')}>${rect(a, ty + 8, b - a, 16, C.red)}</g>`,
     label(b, ty + 48, `${span} meses`, { anchor: 'end', fill: C.red }),
   );
 
@@ -56,33 +56,22 @@ export function closing({ job, why, contact }) {
   out.push(sectionHead(M, y, INNER, '05', 'por quê'));
   y += 84;
   const [headline, ...rest] = why;
-  out.push(text(M - 2, y, headline, { size: 40, bold: true, spacing: -1.5, fill: C.fg }));
+  out.push(`<g${enter(0.3)}>${text(M - 2, y, headline, { size: 40, bold: true, spacing: -1.5, fill: C.fg })}</g>`);
   y += 22;
-  for (const line of rest) {
+  rest.forEach((line, i) => {
     y += 30;
-    out.push(text(M, y, line, { size: 20, fill: C.fg }));
-  }
+    out.push(`<g${enter(0.5 + i * 0.12)}>${text(M, y, line, { size: 20, fill: C.fg })}</g>`);
+  });
 
-  // ── 06 contato ──
+  // ── 06 links: just the heading, the buttons below are their own images ──
   y += 50;
-  out.push(sectionHead(M, y, INNER, '06', 'contato'));
-  y += 80;
-  for (const line of contact.pitch) {
-    out.push(text(M - 3, y, line, { size: 54, bold: true, spacing: -2.5, fill: C.fg }));
-    y += 58;
-  }
-  out.push(text(M, y + 4, '→ escolhe um aí embaixo', { size: 19, fill: C.red, extra: { class: 'hint' } }));
+  out.push(sectionHead(M, y, INNER, '06', 'links'));
 
   return svgDoc({
     width: W,
-    height: y + 36,
-    title: 'Experiência, por quê e contato',
-    desc: `${job.company} (${job.short}), ${job.role}, ${dot(job.from)} a ${dot(job.to)}: ${job.what}. Entrei com ${job.before.join(', ')}; saí com ${job.after.join(', ')}. ${why.join(' ')} ${contact.pitch.join(' ')}`,
-    style: [
-      `.hint{animation:nudge 1.8s ease-in-out infinite}`,
-      `@keyframes nudge{50%{transform:translateX(6px)}}`,
-      `@media (prefers-reduced-motion:reduce){*{animation:none!important}}`,
-    ].join(''),
+    height: y + 44,
+    title: 'Experiência e por quê',
+    desc: `${job.company} (${job.short}), ${job.role}, ${dot(job.from)} a ${dot(job.to)}: ${job.what}. Entrei com ${job.before.join(', ')}; saí com ${job.after.join(', ')}. ${why.join(' ')}`,
     body: out.join('\n'),
   });
 }

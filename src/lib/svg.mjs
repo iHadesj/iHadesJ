@@ -155,13 +155,28 @@ export function sectionHead(x, y, w, num, name, aside) {
   ].filter(Boolean).join('');
 }
 
+/**
+ * Entrance animation for one element: `enter(0.3)` → attributes that make it
+ * rise and fade in 0.3 s after the image loads. Kinds: 'up' (default),
+ * 'pop' (scale from its centre), 'grow' (scaleX from the left edge).
+ */
+export const enter = (delay, kind = 'up') => ` class="in ${kind}" style="animation-delay:${n(delay, 2)}s"`;
+
+const ENTER = [
+  `.in{animation:.75s cubic-bezier(.2,.75,.25,1) both}`,
+  `.up{animation-name:up}@keyframes up{from{opacity:0;transform:translateY(18px)}}`,
+  `.pop{transform-box:fill-box;transform-origin:center;animation-name:pop;animation-duration:.45s}@keyframes pop{from{opacity:0;transform:scale(.2)}}`,
+  `.grow{transform-box:fill-box;transform-origin:left;animation-name:grow;animation-duration:1.1s}@keyframes grow{from{transform:scaleX(0)}}`,
+  `@media (prefers-reduced-motion:reduce){*{animation:none!important}}`,
+].join('');
+
 export function svgDoc({ width, height, title, desc, style = '', body, bg = C.bg }) {
   return [
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-labelledby="t d">`,
     `<title id="t">${esc(title)}</title>`,
     `<desc id="d">${esc(desc)}</desc>`,
-    `<style>text{font-family:${FONT}}${style}</style>`,
-    rect(0, 0, width, height, bg),
+    `<style>text{font-family:${FONT}}${ENTER}${style}</style>`,
+    rect(0, 0, width, height, bg, { rx: 12 }),
     body,
     '</svg>',
   ].join('\n');

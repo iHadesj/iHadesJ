@@ -2,7 +2,8 @@
 import { mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { profile } from './profile.mjs';
 import { contributions, stats } from './lib/contributions.mjs';
-import { pond } from './panels/pond.mjs';
+import { hero } from './panels/hero.mjs';
+import { contrib } from './panels/contrib.mjs';
 import { stack } from './panels/stack.mjs';
 import { projectCard, layout, cardHeight } from './panels/project.mjs';
 import { closing, button } from './panels/closing.mjs';
@@ -16,7 +17,8 @@ const days = await contributions(profile.login);
 const cardH = Math.max(...profile.projects.map((p) => cardHeight(layout(p))));
 
 const files = {
-  pond: pond(profile, days),
+  hero: hero(profile),
+  contrib: contrib(profile, days),
   stack: stack(profile),
   ...Object.fromEntries(profile.projects.map((p, i) => [`projects/${p.slug}`, projectCard(p, i, cardH)])),
   closing: closing(profile),

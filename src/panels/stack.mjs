@@ -2,7 +2,7 @@
 // Under each name: the numbers of the projects where that tool shows up.
 // Ends with the heading for the project cards that follow.
 
-import { C, n, text, rect, label, sectionHead, svgDoc, wrap } from '../lib/svg.mjs';
+import { C, n, text, rect, label, sectionHead, svgDoc, wrap, enter } from '../lib/svg.mjs';
 import { ICONS } from '../data/icons.mjs';
 
 const W = 1000;
@@ -70,12 +70,15 @@ export function stack({ stack: groups, more, projects }) {
       const ty = y + Math.floor(i / perRow) * (th + gap);
       const refs = usedIn(item, projects);
       const color = BRAND[item.icon];
+      // tiles pop in one after another, then their outlines start lighting up
       out.push(
+        `<g${enter(0.1 + k * 0.06)}>`,
         rect(x, ty, tw, th, C.card, { stroke: C.line, rx: 6 }),
-        `<rect class="hl" style="animation-delay:${n(k * 0.35, 2)}s" x="${n(x)}" y="${ty}" width="${n(tw)}" height="${th}" rx="6" fill="none" stroke="${color}" stroke-width="1.5"/>`,
+        `<rect class="hl" style="animation-delay:${n(1.6 + k * 0.35, 2)}s" x="${n(x)}" y="${ty}" width="${n(tw)}" height="${th}" rx="6" fill="none" stroke="${color}" stroke-width="1.5"/>`,
         icon(item.icon, x + tw / 2 - 24, ty + 24, 48),
         text(x + tw / 2, ty + 104, ICONS[item.icon].label, { size: 17, bold: true, anchor: 'middle', fill: C.fg }),
         label(x + tw / 2, ty + 128, refs.length ? refs.join(' ') : item.note ?? '', { anchor: 'middle', size: 12, fill: refs.length ? C.red : C.gray }),
+        '</g>',
       );
       k++;
     });
@@ -101,7 +104,6 @@ export function stack({ stack: groups, more, projects }) {
     style: [
       `.hl{opacity:0;animation:hl ${n(loop, 2)}s ease-in-out infinite}`,
       `@keyframes hl{0%,${n((100 * 1.4) / loop, 1)}%,100%{opacity:0}${n((100 * 0.5) / loop, 1)}%{opacity:1}}`,
-      `@media (prefers-reduced-motion:reduce){*{animation:none!important}}`,
     ].join(''),
     body: out.join('\n'),
   });

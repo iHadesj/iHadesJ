@@ -2,7 +2,7 @@
 // link to its repo). The logos of its stack sit in the top-right corner;
 // the first card is printed in koi red.
 
-import { C, n, text, rect, rule, label, svgDoc, wrap, fit } from '../lib/svg.mjs';
+import { C, n, text, rect, rule, label, svgDoc, wrap, fit, enter } from '../lib/svg.mjs';
 import { num, icon, TAG_ICON } from './stack.mjs';
 
 const W = 490;
@@ -67,6 +67,13 @@ export function projectCard(p, i, height) {
     bg: lead ? '#c8391f' : C.card,
     title: `${num(i)} ${p.title}`,
     desc: `${p.tagline} ${p.description} Stack: ${p.tags.join(', ')}.`,
-    body: [rect(0.75, 0.75, W - 1.5, height - 1.5, 'none', { stroke: lead ? 'none' : C.line, 'stroke-width': 1.5 }), ...out].join('\n'),
+    // cards come in one after another: each is its own image, so the delay
+    // is what staggers them
+    body: [
+      rect(0.75, 0.75, W - 1.5, height - 1.5, 'none', { stroke: lead ? 'none' : C.line, 'stroke-width': 1.5, rx: 12 }),
+      `<g${enter(0.15 + i * 0.12)}>`,
+      ...out,
+      '</g>',
+    ].join('\n'),
   });
 }

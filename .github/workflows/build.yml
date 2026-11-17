@@ -1,5 +1,7 @@
-# Rebuilds the SVG panels and README.md: when the generator or the profile
-# data changes, and once a day so the contribution poster stays current.
+# Draws the day's koi (git-koi), rebuilds the SVG panels and README.md, and
+# commits whatever changed. Runs when the generator or the profile data
+# changes, and every night so the koi and the contribution calendar follow
+# the day that just ended.
 name: build profile
 
 on:
@@ -10,7 +12,7 @@ on:
       - 'package.json'
       - '.github/workflows/build.yml'
   schedule:
-    - cron: '17 6 * * *' # 03:17 em São Paulo
+    - cron: '20 0 * * *' # just after midnight UTC (21:20 in São Paulo)
   workflow_dispatch:
 
 permissions:
@@ -26,6 +28,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # pixel-art koi from my public activity: https://github.com/yalongwastaken/git-koi
+      - name: Draw the koi
+        uses: yalongwastaken/git-koi@v1.0.2
+        with:
+          body: white
+          output-dir: koi
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -37,12 +46,12 @@ jobs:
 
       - name: Commit if anything changed
         run: |
-          if [ -z "$(git status --porcelain -- assets README.md src/data)" ]; then
+          git add -A assets README.md src/data koi/koi.gif
+          if git diff --cached --quiet; then
             echo "already up to date"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A assets README.md src/data
           git commit -m "chore: rebuild profile panels"
           git push
