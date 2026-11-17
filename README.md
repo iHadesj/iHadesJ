@@ -1,6 +1,6 @@
 <!-- gerado por src/readme.mjs (npm run build): edite src/profile.mjs, não este arquivo -->
 <div align="center">
-<img src="assets/poster.svg" width="100%" alt="Edu Ferreira, full stack dev, 20 anos, grajaú, zona sul de sp. procurando vaga: full stack ou front-end. 235 contribuições nos últimos 12 meses." />
+<img src="assets/poster.svg" width="100%" alt="Edu Ferreira, full stack dev, 20 anos, grajaú, zona sul de sp. procurando vaga: full stack ou front-end. 236 contribuições nos últimos 12 meses." />
 <img src="assets/stack.svg" width="100%" alt="Stack: React, Next.js, TypeScript, Tailwind CSS, Three.js, Java, JPA / Hibernate, PostgreSQL, MySQL, Tomcat, Zustand, IndexedDB, Vitest, Zod, Git" />
 <a href="https://github.com/iHadesj/Levva-loja-e-sorte"><img src="assets/projects/levva-loja-e-sorte.svg" width="49%" alt="01 Levva — Loja &amp; Sorte: E-commerce gamificado, meu laboratório de produto." /></a>
 <a href="https://github.com/iHadesj/EduardoFerreira"><img src="assets/projects/eduardo-ferreira.svg" width="49%" alt="02 Portfólio Pessoal: Minha experiência transformada em site." /></a>

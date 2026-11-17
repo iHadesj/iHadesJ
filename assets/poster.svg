@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 740.0694339622642" width="1000" height="740.0694339622642" role="img" aria-labelledby="t d">
 <title id="t">Edu Ferreira — full stack dev</title>
-<desc id="d">full stack dev, 20 anos, grajaú, zona sul de sp. procurando vaga: full stack ou front-end. 235 contribuições nos últimos 12 meses, em 59 dias; recorde de 14 num dia.</desc>
+<desc id="d">full stack dev, 20 anos, grajaú, zona sul de sp. procurando vaga: full stack ou front-end. 236 contribuições nos últimos 12 meses, em 59 dias; recorde de 14 num dia.</desc>
 <style>text{font-family:'Helvetica Neue',Helvetica,Arial,'Liberation Sans',sans-serif}.w{animation:hop 9s ease-out infinite}@keyframes hop{0%,5.56%{transform:none}1.67%{transform:translateY(-6px)}}.ph{opacity:0;animation:sweep 9s linear 0.3s infinite}@keyframes sweep{0%{opacity:1;transform:translateX(0)}26.67%{opacity:1;transform:translateX(920px)}26.78%,100%{opacity:0;transform:translateX(920px)}}.today{transform-box:fill-box;transform-origin:center;animation:pulse 2s ease-in-out 2.7s infinite}@keyframes pulse{50%{transform:scale(1.35);opacity:.35}}.live{animation:blink 1.6s steps(1) infinite}@keyframes blink{50%{opacity:0}}@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style>
 <rect x="0" y="0" width="1000" height="740.07" fill="#efede6"/>
 <text x="40" y="46" font-size="13" font-weight="700" fill="#141414" letter-spacing="1.4">IHADESJ · PERFIL</text>
@@ -71,7 +71,7 @@
 <g class="w" style="animation-delay:2.52s"><circle cx="899.25" cy="457.24" r="6.82" fill="#cf2f18"/><circle cx="899.25" cy="474.6" r="2.2"/><circle cx="899.25" cy="491.96" r="7.04" fill="#cf2f18"/><circle cx="899.25" cy="509.31" r="5.41" fill="#cf2f18"/><circle cx="899.25" cy="526.67" r="5.76" fill="#cf2f18"/><circle cx="899.25" cy="544.03" r="2.2"/><circle cx="899.25" cy="561.39" r="2.2"/></g>
 <g class="w" style="animation-delay:2.56s"><circle cx="916.6" cy="457.24" r="2.2"/><circle cx="916.6" cy="474.6" r="5.41" fill="#cf2f18"/><circle cx="916.6" cy="491.96" r="5.76" fill="#cf2f18"/><circle cx="916.6" cy="509.31" r="2.2"/><circle cx="916.6" cy="526.67" r="2.2"/><circle cx="916.6" cy="544.03" r="5.41" fill="#cf2f18"/><circle cx="916.6" cy="561.39" r="2.2"/></g>
 <g class="w" style="animation-delay:2.61s"><circle cx="933.96" cy="457.24" r="2.2"/><circle cx="933.96" cy="474.6" r="2.2"/><circle cx="933.96" cy="491.96" r="6.82" fill="#cf2f18"/><circle cx="933.96" cy="509.31" r="4.48" fill="#cf2f18"/><circle cx="933.96" cy="526.67" r="5.01" fill="#cf2f18"/><circle cx="933.96" cy="544.03" r="2.2"/><circle cx="933.96" cy="561.39" r="5.01" fill="#cf2f18"/></g>
-<g class="w" style="animation-delay:2.65s"><circle cx="951.32" cy="457.24" r="4.48" fill="#cf2f18"/><circle cx="951.32" cy="474.6" r="5.01" fill="#cf2f18"/><circle cx="951.32" cy="491.96" r="4.48" fill="#cf2f18"/></g>
+<g class="w" style="animation-delay:2.65s"><circle cx="951.32" cy="457.24" r="4.48" fill="#cf2f18"/><circle cx="951.32" cy="474.6" r="5.01" fill="#cf2f18"/><circle cx="951.32" cy="491.96" r="5.01" fill="#cf2f18"/></g>
 </g>
 <text x="76.72" y="592.07" font-size="12" font-weight="700" fill="#66635b" letter-spacing="1.4">DEZ</text>
 <text x="146.15" y="592.07" font-size="12" font-weight="700" fill="#66635b" letter-spacing="1.4">JAN</text>
@@ -88,7 +88,7 @@
 <circle class="today" cx="951.32" cy="491.96" r="8.33" fill="none" stroke="#141414" stroke-width="1.5"/>
 <rect x="40" y="442.56" width="2" height="133.51" fill="#cf2f18" class="ph"/>
 <rect x="40" y="616.07" width="920" height="1.5" fill="#141414"/>
-<text x="40" y="686.07" font-size="58" font-weight="700" fill="#cf2f18" letter-spacing="-2">235</text>
+<text x="40" y="686.07" font-size="58" font-weight="700" fill="#cf2f18" letter-spacing="-2">236</text>
 <text x="40" y="710.07" font-size="13" font-weight="700" fill="#66635b" letter-spacing="1.4">CONTRIBUIÇÕES</text>
 <rect x="258" y="634.07" width="1.5" height="70" fill="#cfcabe"/>
 <text x="270" y="686.07" font-size="58" font-weight="700" fill="#141414" letter-spacing="-2">59</text>
