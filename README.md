@@ -2,7 +2,7 @@
 <div align="center">
 <img src="assets/hero.svg" width="100%" alt="Edu Ferreira, full stack dev, 20 anos, grajaú, zona sul de sp" />
 <a href="https://github.com/yalongwastaken/git-koi"><img src="koi/koi.gif" width="256" alt="Uma carpa koi em pixel art, desenhada toda noite a partir da minha atividade no GitHub" /></a>
-<img src="assets/contrib.svg" width="100%" alt="244 contribuições nos últimos 12 meses" />
+<img src="assets/contrib.svg" width="100%" alt="245 contribuições nos últimos 12 meses" />
 <img src="assets/stack.svg" width="100%" alt="Stack: React, Next.js, TypeScript, JavaScript, Tailwind CSS, Three.js, Java, PostgreSQL, MySQL, Vitest, Zod, Git" />
 <a href="https://github.com/iHadesj/Levva-loja-e-sorte"><img src="assets/projects/levva-loja-e-sorte.svg" width="49%" alt="01 Levva — Loja &amp; Sorte: E-commerce gamificado, meu laboratório de produto." /></a>
 <a href="https://github.com/iHadesj/EduardoFerreira"><img src="assets/projects/eduardo-ferreira.svg" width="49%" alt="02 Portfólio Pessoal: Minha experiência transformada em site." /></a>
